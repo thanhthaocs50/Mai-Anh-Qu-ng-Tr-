@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miễn Trừ Trách Nhiệm | Tài Chính Quảng Trị</title>
+  <meta name="description" content="Tuyên bố miễn trừ trách nhiệm của Tài Chính Quảng Trị về nội dung tư vấn, sản phẩm tài chính và liên kết bên thứ ba." />
+  <link rel="canonical" href="https://taichinhquangtri.vercel.app/mien-tru-trach-nhiem.html" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
+  <meta name="theme-color" content="#0b5ed7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="Tài Chính Quảng Trị" />
+  <meta property="og:url" content="https://taichinhquangtri.vercel.app/mien-tru-trach-nhiem.html" />
+  <meta property="og:title" content="Miễn Trừ Trách Nhiệm | Tài Chính Quảng Trị" />
+  <meta property="og:description" content="Tuyên bố miễn trừ trách nhiệm của Tài Chính Quảng Trị về nội dung tư vấn, sản phẩm tài chính và liên kết bên thứ ba." />
+  <meta property="og:image" content="https://taichinhquangtri.vercel.app/images/icontren.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Miễn Trừ Trách Nhiệm | Tài Chính Quảng Trị" />
+  <meta name="twitter:description" content="Tuyên bố miễn trừ trách nhiệm của Tài Chính Quảng Trị về nội dung tư vấn, sản phẩm tài chính và liên kết bên thứ ba." />
+  <meta name="twitter:image" content="https://taichinhquangtri.vercel.app/images/icontren.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+</head>
+
+<body>
+  <header id="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ"><span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span></a>
+      <nav class="nav-tabs" id="nav-tabs"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a></nav>
+      <div class="topbar-right"><button class="btn-cta liquid-glass" type="button" onclick="openModal()">Đăng ký tư vấn</button><button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a><button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">Đăng ký tư vấn</button></div>
+  </header>
+
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)"><div class="modal-card modal-card-new animate-fade-rise"><button class="modal-close" type="button" onclick="closeModal()" aria-label="Đóng form tư vấn">×</button><div class="form-header-new"><div class="fh-icon-wrapper"><span class="fh-icon">☎</span></div><div class="fh-text"><h3>Đăng ký tư vấn miễn phí</h3><p>Điền thông tin, Tài Chính Quảng Trị sẽ liên hệ hỗ trợ tư vấn trong thời gian phù hợp.</p></div></div><form id="modal-form" class="quick-consult-form"><div class="form-row"><div class="form-group-new"><label for="mf-name">Họ và tên <span class="text-red">*</span></label><div class="input-wrapper"><input type="text" id="mf-name" placeholder="Nhập họ và tên" autocomplete="name" required /></div></div><div class="form-group-new"><label for="mf-phone">Số điện thoại <span class="text-red">*</span></label><div class="input-wrapper"><input type="tel" id="mf-phone" placeholder="Nhập số điện thoại" autocomplete="tel" required pattern="[0-9]{10}" maxlength="10" /></div></div></div><div class="form-group-new mt-3"><label for="mf-product">Nhu cầu tư vấn <span class="text-red">*</span></label><div class="input-wrapper"><select id="mf-product" required><option value="">-- Chọn nhu cầu --</option><option>Vay tiêu dùng</option><option>Mở tài khoản/thẻ ngân hàng</option><option>Cần tư vấn thêm</option></select></div></div><p class="form-privacy-note">Thông tin của bạn chỉ được sử dụng để liên hệ tư vấn và được xử lý theo Chính sách bảo mật.</p>
+        <label class="form-consent" for="mf-privacy">
+          <input type="checkbox" id="mf-privacy" required />
+          <span>Tôi đồng ý để Tài Chính Quảng Trị liên hệ tư vấn theo thông tin đã gửi và đã đọc <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>.</span>
+        </label>
+<button type="submit" class="btn-submit-new mt-4">Nhận tư vấn miễn phí</button></form></div></div>
+  <div id="zalo-qr-modal" class="modal-overlay" onclick="closeZaloQROnBackdrop(event)"><div class="modal-card qr-modal-card animate-fade-rise"><div class="modal-header"><h3>Quét mã QR Zalo</h3><button class="modal-close" type="button" onclick="closeZaloQR()">×</button></div><div class="qr-content"><img src="images/maianh.png" alt="Ảnh đại diện tư vấn viên" class="qr-avatar" loading="lazy" /><h4>Tài Chính Quảng Trị</h4><p class="qr-label">Liên hệ Zalo</p><img src="images/qrzalom.png" alt="Mã QR Zalo Tài Chính Quảng Trị" class="qr-image" loading="lazy" /><p class="qr-instruction">Mở Zalo và quét mã để gửi nhu cầu tư vấn.</p></div></div></div>
+  <div id="product-detail-modal" class="modal-overlay"><div class="product-detail-card animate-fade-rise" id="product-detail-content"></div></div><div id="toast" class="toast"></div>
+
+  <main class="legal-page">
+    <section class="legal-hero"><div class="legal-shell"><p class="legal-updated">Cập nhật lần cuối: 22/05/2026</p><h1>Miễn trừ trách nhiệm</h1><p>Trang này làm rõ phạm vi trách nhiệm của Tài Chính Quảng Trị khi cung cấp thông tin tư vấn và kết nối sản phẩm tài chính.</p></div></section>
+    <div class="legal-shell legal-layout">
+      <article class="legal-card">
+        <section class="legal-section"><h2>Không phải đơn vị cho vay trực tiếp</h2><ul class="legal-list"><li>Tài Chính Quảng Trị không trực tiếp cấp khoản vay.</li><li>Không giải ngân tiền.</li><li>Không quyết định phê duyệt hồ sơ.</li><li>Không đưa ra quyết định thay cho ngân hàng hoặc công ty tài chính.</li><li>Kết quả đăng ký phụ thuộc vào đơn vị cung cấp sản phẩm.</li></ul></section>
+        <section class="legal-section"><h2>Không cam kết lãi suất, hạn mức, ưu đãi</h2><p>Lãi suất, hạn mức, ưu đãi, thời gian xử lý hồ sơ và điều kiện sản phẩm có thể thay đổi theo từng đơn vị cung cấp và từng thời điểm.</p><p>Tài Chính Quảng Trị không cam kết kết quả phê duyệt hoặc việc khách hàng chắc chắn được sử dụng sản phẩm.</p></section>
+        <section class="legal-section"><h2>Nội dung chỉ mang tính tham khảo</h2><p>Nội dung trên website được biên soạn nhằm hỗ trợ người dùng tìm hiểu thông tin ban đầu. Nội dung không phải tư vấn tài chính, pháp lý hoặc đầu tư chuyên nghiệp.</p></section>
+        <section class="legal-section"><h2>Người dùng tự chịu trách nhiệm với quyết định của mình</h2><ul class="legal-list"><li>Tự đọc kỹ điều khoản sản phẩm.</li><li>Tự cân nhắc khả năng trả nợ.</li><li>Tự chịu trách nhiệm với quyết định đăng ký.</li><li>Có thể liên hệ đơn vị cung cấp sản phẩm để xác minh thông tin chính thức.</li></ul></section>
+        <section class="legal-section"><h2>Liên kết và dịch vụ bên thứ ba</h2><p>Website có thể dẫn đến trang của bên thứ ba. Chính sách của bên thứ ba nằm ngoài quyền kiểm soát của Tài Chính Quảng Trị.</p><p>Người dùng cần tự kiểm tra URL, điều khoản và chính sách bảo mật trước khi cung cấp thông tin.</p></section>
+        <section class="legal-section"><h2>Cảnh báo an toàn</h2><ul class="legal-list"><li>Không cung cấp OTP, mật khẩu, mã xác thực cho bất kỳ ai.</li><li>Không chuyển tiền trước cho người lạ để được vay hoặc mở tài khoản.</li><li>Chỉ đăng ký qua kênh chính thức hoặc đáng tin cậy.</li><li>Kiểm tra kỹ phí, lãi suất, kỳ hạn và điều kiện trước khi đồng ý.</li><li>Cảnh giác với các lời mời vay tiền quá dễ dàng hoặc yêu cầu phí trước.</li></ul></section>
+        <section class="legal-section"><h2>Liên hệ</h2><p>Hotline: <a href="tel:0848050626">0848 050 626</a>. Zalo: <a href="https://zalo.me/0977216260">0977 216 260</a>. Trang liên hệ: <a href="lien-he.html">lien-he.html</a>.</p></section>
+      </article>
+      <aside class="legal-note"><h2>Liên kết liên quan</h2><div class="legal-cross-links"><a href="index.html">Về trang chủ</a><a href="lien-he.html">Liên hệ tư vấn</a><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a><a href="dieu-khoan-su-dung.html">Điều khoản sử dụng</a></div></aside>
+    </div>
+  </main>
+
+  <footer id="site-footer"><div class="footer-content"><div class="footer-section"><h4>Tài Chính Quảng Trị</h4><p>Kênh tư vấn và kết nối thông tin sản phẩm tài chính tại Quảng Trị.</p><p><a href="tel:0848050626">Hotline: 0848 050 626</a></p><p><a href="https://zalo.me/0977216260">Zalo: 0977 216 260</a></p></div><div class="footer-section"><h4>Dịch Vụ</h4><ul style="list-style: none; padding: 0"><li><a href="vay-tieu-dung.html">Vay tiêu dùng</a></li><li><a href="the-ngan-hang.html">Mở tài khoản ngân hàng</a></li><li><a href="lien-he.html">Tư vấn tài chính cá nhân</a></li></ul></div><div class="footer-section"><h4>Hỗ Trợ</h4><ul style="list-style: none; padding: 0"><li><a href="lien-he.html">Liên hệ</a></li><li><a href="faq.html">FAQ</a></li><li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li><li><a href="dieu-khoan-su-dung.html">Điều khoản sử dụng</a></li><li><a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a></li></ul></div><div class="footer-section"><h4>Kết Nối Nhanh</h4><ul style="list-style: none; padding: 0"><li><a href="tel:0848050626">Gọi hotline</a></li><li><a href="https://zalo.me/0977216260">Nhắn Zalo</a></li><li><a href="lien-he.html">Gửi thông tin tư vấn</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 Tài Chính Quảng Trị. All rights reserved.</p><p class="footer-disclaimer">Thông tin trên website chỉ mang tính tham khảo. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay, không quyết định phê duyệt hồ sơ và không thu phí tư vấn từ khách hàng. Lãi suất, hạn mức, ưu đãi và thời gian xử lý hồ sơ có thể thay đổi theo chính sách của từng đơn vị cung cấp sản phẩm.</p></div></footer>
+  <a class="zalo-bubble" href="https://zalo.me/0977216260" target="_blank" rel="noopener noreferrer" title="Zalo" aria-label="Nhan tin Zalo Tai Chinh Quang Tri"><img src="images/lgzalo.png" alt="Zalo" class="zalo-icon" loading="lazy" /></a>
+</body>
+
+</html>

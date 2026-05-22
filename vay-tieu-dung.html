@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vay Tiêu Dùng Quảng Trị | Tư Vấn Vay Tín Chấp</title>
+  <meta name="description" content="Tổng hợp sản phẩm vay tiêu dùng, vay tín chấp tại Quảng Trị. Hỗ trợ tư vấn hồ sơ, điều kiện và lựa chọn sản phẩm phù hợp." />
+  <meta name="keywords" content="vay tieu dung quang tri, vay tin chap quang tri, tu van vay tieu dung, san pham vay tieu dung, tai chinh quang tri" />
+  <link rel="canonical" href="https://taichinhquangtri.vercel.app/vay-tieu-dung.html" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
+  <meta name="theme-color" content="#0b5ed7" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="Tài Chính Quảng Trị" />
+  <meta property="og:url" content="https://taichinhquangtri.vercel.app/vay-tieu-dung.html" />
+  <meta property="og:title" content="Vay Tiêu Dùng Quảng Trị | Tư Vấn Vay Tín Chấp" />
+  <meta property="og:description" content="Tìm hiểu các sản phẩm vay tiêu dùng tại Quảng Trị, điều kiện hồ sơ và cách đăng ký tư vấn phù hợp." />
+  <meta property="og:image" content="https://taichinhquangtri.vercel.app/images/icontren.png" />
+  <meta property="og:image:secure_url" content="https://taichinhquangtri.vercel.app/images/icontren.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Tài Chính Quảng Trị - tư vấn vay tiêu dùng tại Quảng Trị" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vay Tiêu Dùng Quảng Trị | Tư Vấn Vay Tín Chấp" />
+  <meta name="twitter:description" content="Tìm hiểu các sản phẩm vay tiêu dùng tại Quảng Trị, điều kiện hồ sơ và cách đăng ký tư vấn phù hợp." />
+  <meta name="twitter:image" content="https://taichinhquangtri.vercel.app/images/icontren.png" />
+  <meta name="twitter:image:alt" content="Tài Chính Quảng Trị - tư vấn vay tiêu dùng tại Quảng Trị" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%230b5ed7'/><text x='16' y='21' text-anchor='middle' fill='white' font-size='12' font-weight='700'>TC</text></svg>" />
+</head>
+
+<body>
+  <header id="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
+        <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
+      </a>
+      <nav class="nav-tabs" id="nav-tabs">
+        <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
+        <a class="tab-btn active" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+        <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+        <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      </nav>
+      <div class="topbar-right">
+        <button class="btn-cta liquid-glass" type="button" onclick="openModal()">Đăng ký tư vấn</button>
+        <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
+      <a class="tab-btn active" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+      <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+      <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      <button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">Đăng ký tư vấn</button>
+    </div>
+  </header>
+
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card modal-card-new animate-fade-rise">
+      <button class="modal-close" type="button" onclick="closeModal()" aria-label="Đóng form tư vấn">×</button>
+      <div class="form-header-new">
+        <div class="fh-icon-wrapper"><span class="fh-icon">☎</span></div>
+        <div class="fh-text">
+          <h3>Đăng ký tư vấn miễn phí</h3>
+          <p>Điền thông tin, Tài Chính Quảng Trị sẽ liên hệ hỗ trợ tư vấn trong thời gian phù hợp.</p>
+        </div>
+      </div>
+      <form id="modal-form" class="quick-consult-form">
+        <h4 class="form-section-title">Thông tin tư vấn nhanh</h4>
+        <div class="form-row">
+          <div class="form-group-new">
+            <label for="mf-name">Họ và tên <span class="text-red">*</span></label>
+            <div class="input-wrapper">
+              <input type="text" id="mf-name" placeholder="Nhập họ và tên" autocomplete="name" required />
+            </div>
+          </div>
+          <div class="form-group-new">
+            <label for="mf-phone">Số điện thoại <span class="text-red">*</span></label>
+            <div class="input-wrapper">
+              <input type="tel" id="mf-phone" placeholder="Nhập số điện thoại" autocomplete="tel" required pattern="[0-9]{10}" title="Vui lòng nhập đúng 10 chữ số" maxlength="10" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group-new mt-3">
+          <label for="mf-product">Sản phẩm quan tâm <span class="text-red">*</span></label>
+          <div class="input-wrapper">
+            <select id="mf-product" required>
+              <option value="">-- Chọn nhu cầu --</option>
+              <option>Vay tiêu dùng - FE Credit</option>
+              <option>Vay tiêu dùng - SHB Finance</option>
+              <option>Vay tiêu dùng - Lotte Finance</option>
+              <option>Vay tiêu dùng - F88</option>
+              <option>Vay tiêu dùng - TNEX</option>
+              <option>Vay tiêu dùng - VIB</option>
+              <option>Vay tiêu dùng - Sawad</option>
+              <option>Vay tiêu dùng - Mirae Asset</option>
+              <option>Chưa biết, cần tư vấn thêm</option>
+            </select>
+          </div>
+        </div>
+        <p class="form-privacy-note">Thông tin của bạn chỉ được sử dụng để liên hệ tư vấn và được xử lý theo Chính sách bảo mật.</p>
+        <label class="form-consent" for="mf-privacy">
+          <input type="checkbox" id="mf-privacy" required />
+          <span>Tôi đồng ý để Tài Chính Quảng Trị liên hệ tư vấn theo thông tin đã gửi và đã đọc <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>.</span>
+        </label>
+
+        <button type="submit" class="btn-submit-new mt-4">Nhận tư vấn miễn phí</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="zalo-qr-modal" class="modal-overlay" onclick="closeZaloQROnBackdrop(event)">
+    <div class="modal-card qr-modal-card animate-fade-rise">
+      <div class="modal-header">
+        <h3>Quét mã QR Zalo</h3>
+        <button class="modal-close" type="button" onclick="closeZaloQR()" aria-label="Đóng mã QR Zalo">×</button>
+      </div>
+      <div class="qr-content">
+        <img src="images/maianh.png" alt="Ảnh đại diện tư vấn viên" class="qr-avatar" loading="lazy" />
+        <h4>Tài Chính Quảng Trị</h4>
+        <p class="qr-label">Liên hệ Zalo</p>
+        <img src="images/qrzalom.png" alt="Mã QR Zalo Tài Chính Quảng Trị" class="qr-image" loading="lazy" />
+        <p class="qr-instruction">Mở Zalo và quét mã để gửi nhu cầu tư vấn.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-detail-modal" class="modal-overlay" onclick="closeProductDetail(event)">
+    <div class="product-detail-card animate-fade-rise" id="product-detail-content"></div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <main>
+    <div id="page-loan" class="page active loan-page">
+      <section class="loan-hero" aria-labelledby="loan-hero-title">
+        <div class="loan-shell loan-hero__grid">
+          <div class="loan-hero__content">
+            <p class="loan-eyebrow">Tư vấn vay tiêu dùng tại Quảng Trị</p>
+            <h1 id="loan-hero-title">Sản phẩm vay tiêu dùng tại Quảng Trị</h1>
+            <p class="loan-hero__lead">Tham khảo các sản phẩm vay tiêu dùng phổ biến, so sánh điều kiện hồ sơ và đăng ký tư vấn để lựa chọn giải pháp phù hợp với nhu cầu cá nhân.</p>
+            <div class="loan-hero__actions">
+              <button class="loan-btn loan-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button>
+              <a class="loan-btn loan-btn--secondary" href="#loan-products">Xem sản phẩm vay</a>
+            </div>
+            <p class="loan-hero__trust">Tư vấn miễn phí • Không thu phí hồ sơ từ khách hàng • Thông tin được xử lý theo chính sách bảo mật</p>
+          </div>
+          <div class="loan-hero__panel">
+            <div class="loan-hero-card">
+              <span>Thông tin minh bạch</span>
+              <h2>So sánh trước khi đăng ký</h2>
+              <p>Khách hàng nên kiểm tra kỹ điều kiện, chi phí, kỳ hạn và khả năng trả nợ trước khi lựa chọn sản phẩm vay.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="loan-trust-note" aria-label="Thông báo minh bạch">
+        <div class="loan-shell">
+          <p>Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính. Việc phê duyệt khoản vay, hạn mức, lãi suất và thời gian xử lý hồ sơ phụ thuộc vào quy định của từng đơn vị cung cấp sản phẩm.</p>
+        </div>
+      </section>
+
+      <section class="loan-section loan-products-section" id="loan-products" aria-labelledby="loan-products-title">
+        <div class="loan-shell">
+          <div class="loan-section__header">
+            <span class="loan-section__label">Danh sách sản phẩm</span>
+            <h2 id="loan-products-title">Sản phẩm vay tiêu dùng tham khảo</h2>
+            <p>Không hiển thị lãi suất, hạn mức hoặc thời gian giải ngân cố định khi chưa có nguồn xác minh chính thức.</p>
+          </div>
+
+          <div class="loan-filter" aria-label="Bộ lọc sản phẩm vay tiêu dùng">
+            <button class="loan-filter__button active" type="button" data-loan-filter="all">Tất cả sản phẩm</button>
+            <button class="loan-filter__button" type="button" data-loan-filter="finance">Công ty tài chính</button>
+            <button class="loan-filter__button" type="button" data-loan-filter="digital">Ngân hàng/ngân hàng số</button>
+            <button class="loan-filter__button" type="button" data-loan-filter="fast-support">Hỗ trợ nhanh</button>
+            <button class="loan-filter__button" type="button" data-loan-filter="secured">Cầm cố/tài sản</button>
+            <button class="loan-filter__button" type="button" data-loan-filter="consult">Cần tư vấn thêm</button>
+          </div>
+
+          <div class="loan-grid">
+            <article class="loan-card" data-category="finance fast-support">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/fe.png" alt="Logo FE Credit" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
+              <div class="loan-card__content"><h3>FE Credit</h3><p>Hỗ trợ khách hàng tìm hiểu thông tin sản phẩm vay tiêu dùng, điều kiện hồ sơ và quy trình đăng ký phù hợp.</p><dl><dt>Phù hợp với</dt><dd>Người cần tham khảo khoản vay tiêu dùng phục vụ chi tiêu cá nhân.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và thông tin cá nhân cơ bản. Hồ sơ cụ thể phụ thuộc vào quy định của đơn vị cung cấp sản phẩm.</dd></dl><p class="loan-card__note">Lãi suất, hạn mức và thời gian xử lý có thể thay đổi theo từng hồ sơ.</p></div>
+              <a class="loan-card__cta" href="https://fin.mfast.vn/?pageID=6719013&platform=mfast" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/shb.png" alt="Logo SHB Finance" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
+              <div class="loan-card__content"><h3>SHB Finance</h3><p>Hỗ trợ tìm hiểu thông tin vay tiêu dùng và các lưu ý về điều kiện đăng ký theo từng sản phẩm.</p><dl><dt>Phù hợp với</dt><dd>Khách hàng muốn so sánh sản phẩm vay tín chấp trước khi đăng ký.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và hồ sơ bổ sung nếu đơn vị cung cấp yêu cầu.</dd></dl><p class="loan-card__note">Kết quả phê duyệt phụ thuộc vào chính sách và hồ sơ thực tế.</p></div>
+              <a class="loan-card__cta" href="https://appay.cloudcms.vn/finance/shb_leadgen_direct/onboarding?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/lotte.png" alt="Logo Lotte Finance" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
+              <div class="loan-card__content"><h3>Lotte Finance</h3><p>Thông tin sản phẩm vay tiêu dùng tham khảo cho nhu cầu chi tiêu cá nhân, mua sắm hoặc cân đối tài chính.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tìm hiểu sản phẩm vay tiêu dùng từ công ty tài chính.</dd><dt>Hồ sơ tham khảo</dt><dd>Thông tin cá nhân cơ bản và hồ sơ theo quy định của đơn vị cung cấp.</dd></dl><p class="loan-card__note">Khách hàng nên kiểm tra kỹ lãi suất, phí và kỳ hạn trước khi đăng ký.</p></div>
+              <a class="loan-card__cta" href="https://vay.lottefinance.vn/" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="secured fast-support">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/f88.png" alt="Logo F88" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
+              <div class="loan-card__content"><h3>F88</h3><p>Hỗ trợ khách hàng tìm hiểu sản phẩm có liên quan đến tài sản/cầm cố theo quy định của đơn vị cung cấp.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tham khảo giải pháp tài chính có tài sản liên quan.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và giấy tờ liên quan đến tài sản nếu sản phẩm yêu cầu.</dd></dl><p class="loan-card__note">Không chuyển phí trước nếu chưa xác minh rõ ràng điều kiện và đơn vị tiếp nhận.</p></div>
+              <a class="loan-card__cta" href="https://sc.mfast.vn/f88_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="digital fast-support">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/tnex.png" alt="Logo TNEX" loading="lazy" /><span class="loan-card__tag">Vay online tham khảo</span></div>
+              <div class="loan-card__content"><h3>TNEX</h3><p>Hỗ trợ tìm hiểu quy trình đăng ký online và các thông tin cần kiểm tra trước khi gửi hồ sơ.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tham khảo sản phẩm có quy trình đăng ký trực tuyến.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và điều kiện theo chính sách từng thời điểm.</dd></dl><p class="loan-card__note">Thời gian xử lý phụ thuộc vào hệ thống, hồ sơ và quy định của đơn vị cung cấp.</p></div>
+              <a class="loan-card__cta" href="https://sc.mfast.vn/tnex_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="digital finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/vib.png" alt="Logo VIB" loading="lazy" /><span class="loan-card__tag">Vay tín chấp tham khảo</span></div>
+              <div class="loan-card__content"><h3>VIB Finance</h3><p>Thông tin vay tiêu dùng tham khảo, giúp khách hàng tìm hiểu điều kiện và lưu ý trước khi đăng ký.</p><dl><dt>Phù hợp với</dt><dd>Khách hàng muốn so sánh sản phẩm vay tín chấp với nhu cầu cá nhân.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và giấy tờ bổ sung nếu được yêu cầu.</dd></dl><p class="loan-card__note">Không có cam kết về kết quả phê duyệt, hạn mức hoặc thời gian xử lý.</p></div>
+              <a class="loan-card__cta" href="https://sc.mfast.vn/vib_quick_cash?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="secured finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/swad.png" alt="Logo Sawad" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
+              <div class="loan-card__content"><h3>Sawad</h3><p>Hỗ trợ tìm hiểu thông tin sản phẩm vay/cầm cố tham khảo và các điều kiện hồ sơ liên quan.</p><dl><dt>Phù hợp với</dt><dd>Người cần tham khảo giải pháp tài chính có điều kiện hồ sơ cụ thể.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và giấy tờ liên quan theo yêu cầu của đơn vị cung cấp sản phẩm.</dd></dl><p class="loan-card__note">Khách hàng nên đọc kỹ điều khoản trước khi đồng ý đăng ký.</p></div>
+              <a class="loan-card__cta" href="https://sc.mfast.vn/sawad?sale_code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            </article>
+
+            <article class="loan-card" data-category="consult finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/mira.png" alt="Logo Mirae Asset" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
+              <div class="loan-card__content"><h3>Mirae Asset</h3><p>Thông tin sản phẩm tài chính cá nhân cần được kiểm tra lại theo chính sách của đơn vị cung cấp trước khi đăng ký.</p><dl><dt>Phù hợp với</dt><dd>Người muốn có thêm lựa chọn để so sánh trước khi quyết định.</dd><dt>Hồ sơ tham khảo</dt><dd>Hồ sơ và điều kiện cụ thể phụ thuộc vào quy định của đơn vị cung cấp.</dd></dl><p class="loan-card__note">Cần xác minh link đăng ký và thông tin sản phẩm chính thức trước khi triển khai sâu.</p></div>
+              <button class="loan-card__cta" type="button" onclick="openModal()">Đăng ký tư vấn</button>
+            </article>
+          </div>
+
+          <p class="loan-empty" id="loan-empty" hidden>Chưa có sản phẩm phù hợp với bộ lọc này. Bạn có thể gửi thông tin để được tư vấn thêm.</p>
+        </div>
+      </section>
+
+      <section class="loan-section loan-process" aria-labelledby="loan-process-title">
+        <div class="loan-shell">
+          <div class="loan-section__header"><span class="loan-section__label">Quy trình</span><h2 id="loan-process-title">Quy trình đăng ký tư vấn</h2></div>
+          <div class="loan-process__grid">
+            <article><span>1</span><h3>Gửi thông tin nhu cầu</h3><p>Điền họ tên, số điện thoại và sản phẩm quan tâm.</p></article>
+            <article><span>2</span><h3>Kiểm tra thông tin cơ bản</h3><p>Tài Chính Quảng Trị hỗ trợ trao đổi nhu cầu và gợi ý sản phẩm phù hợp.</p></article>
+            <article><span>3</span><h3>Chuẩn bị hồ sơ</h3><p>Khách hàng được hướng dẫn chuẩn bị thông tin theo yêu cầu của từng đơn vị cung cấp.</p></article>
+            <article><span>4</span><h3>Theo dõi kết quả xử lý</h3><p>Kết quả phê duyệt, hạn mức và thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="loan-section loan-fit" aria-labelledby="loan-fit-title">
+        <div class="loan-shell loan-fit__grid">
+          <div class="loan-section__header"><span class="loan-section__label">Đối tượng phù hợp</span><h2 id="loan-fit-title">Ai nên tìm hiểu vay tiêu dùng?</h2><p>Khách hàng nên cân nhắc khả năng trả nợ trước khi đăng ký bất kỳ sản phẩm vay nào.</p></div>
+          <div class="loan-fit__cards">
+            <article>Người cần chi tiêu cá nhân có kế hoạch trả nợ rõ ràng.</article>
+            <article>Người muốn tham khảo nhiều sản phẩm trước khi đăng ký.</article>
+            <article>Người cần được tư vấn điều kiện hồ sơ dễ hiểu.</article>
+            <article>Người muốn so sánh các lựa chọn phù hợp với khả năng tài chính.</article>
+          </div>
+        </div>
+      </section>
+
+      <section class="loan-section loan-warning" aria-labelledby="loan-warning-title">
+        <div class="loan-shell loan-warning__grid">
+          <div class="loan-section__header"><span class="loan-section__label">An toàn tài chính</span><h2 id="loan-warning-title">Lưu ý quan trọng trước khi đăng ký</h2></div>
+          <ul>
+            <li>Chỉ vay khi có nhu cầu thật sự cần thiết.</li>
+            <li>Kiểm tra kỹ lãi suất, phí và kỳ hạn thanh toán.</li>
+            <li>Đọc kỹ điều khoản trước khi đồng ý.</li>
+            <li>Không cung cấp mã OTP/mật khẩu cho người khác.</li>
+            <li>Không chuyển phí trước nếu chưa xác minh rõ ràng.</li>
+            <li>Cân nhắc khả năng trả nợ hàng tháng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="loan-section loan-faq" aria-labelledby="loan-faq-title">
+        <div class="loan-shell loan-faq__grid">
+          <div class="loan-section__header"><span class="loan-section__label">Câu hỏi thường gặp</span><h2 id="loan-faq-title">FAQ vay tiêu dùng</h2></div>
+          <div class="loan-faq__list">
+            <details><summary>Vay tiêu dùng tại Quảng Trị cần giấy tờ gì?</summary><p>Thông thường khách hàng cần CCCD và thông tin cá nhân cơ bản. Tùy từng sản phẩm, đơn vị cung cấp có thể yêu cầu thêm thông tin thu nhập hoặc giấy tờ liên quan.</p></details>
+            <details><summary>Tài Chính Quảng Trị có trực tiếp cho vay không?</summary><p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay và không quyết định phê duyệt hồ sơ.</p></details>
+            <details><summary>Tôi có phải trả phí tư vấn không?</summary><p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></details>
+            <details><summary>Thời gian xử lý hồ sơ bao lâu?</summary><p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p></details>
+            <details><summary>Lãi suất vay tiêu dùng là bao nhiêu?</summary><p>Lãi suất có thể thay đổi theo từng sản phẩm, thời điểm và hồ sơ khách hàng. Khách hàng nên kiểm tra thông tin cụ thể trước khi đăng ký.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="loan-cta" aria-labelledby="loan-cta-title">
+        <div class="loan-shell loan-cta__inner">
+          <div><h2 id="loan-cta-title">Cần tư vấn sản phẩm vay phù hợp?</h2><p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu sản phẩm vay tiêu dùng phù hợp với nhu cầu và khả năng tài chính của bạn.</p></div>
+          <div class="loan-cta__actions">
+            <button class="loan-btn loan-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button>
+            <a class="loan-btn loan-btn--secondary" href="tel:0848050626">Gọi ngay 0848 050 626</a>
+            <a class="loan-btn loan-btn--zalo" href="https://zalo.me/0977216260">Nhắn Zalo</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Tài Chính Quảng Trị</h4>
+          <p>Kênh tư vấn và kết nối thông tin sản phẩm tài chính tại Quảng Trị.</p>
+          <p><a href="tel:0848050626">Hotline: 0848 050 626</a></p>
+          <p><a href="https://zalo.me/0977216260">Zalo: 0977 216 260</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Dịch Vụ</h4>
+          <ul style="list-style: none; padding: 0">
+            <li><a href="vay-tieu-dung.html">Vay tiêu dùng</a></li>
+            <li><a href="the-ngan-hang.html">Mở tài khoản ngân hàng</a></li>
+            <li><a href="lien-he.html">Tư vấn tài chính cá nhân</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Hỗ Trợ</h4>
+          <ul style="list-style: none; padding: 0">
+            <li><a href="lien-he.html">Liên hệ</a></li><li><a href="faq.html">FAQ</a></li>
+            <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+            <li><a href="dieu-khoan-su-dung.html">Điều khoản sử dụng</a></li>
+            <li><a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Kết Nối Nhanh</h4>
+          <ul style="list-style: none; padding: 0">
+            <li><a href="tel:0848050626">Gọi hotline</a></li>
+            <li><a href="https://zalo.me/0977216260">Nhắn Zalo</a></li>
+            <li><a href="lien-he.html">Gửi thông tin tư vấn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tài Chính Quảng Trị. All rights reserved.</p>
+        <p class="footer-disclaimer">Thông tin trên website chỉ mang tính tham khảo. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay, không quyết định phê duyệt hồ sơ và không thu phí tư vấn từ khách hàng. Lãi suất, hạn mức, ưu đãi và thời gian xử lý hồ sơ có thể thay đổi theo chính sách của từng đơn vị cung cấp sản phẩm.</p>
+      </div>
+    </footer>
+  </main>
+
+  <a class="zalo-bubble" href="https://zalo.me/0977216260" target="_blank" rel="noopener noreferrer" title="Zalo" aria-label="Nhan tin Zalo Tai Chinh Quang Tri"><img src="images/lgzalo.png" alt="Zalo" class="zalo-icon" loading="lazy" /></a>
+</body>
+
+</html>
