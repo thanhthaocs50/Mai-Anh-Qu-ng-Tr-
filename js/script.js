@@ -255,6 +255,7 @@ function initTabNavigation() {
         let targetUrl = "index.html";
         if (page === "loan") targetUrl = "vay-tieu-dung.html";
         else if (page === "bank") targetUrl = "the-ngan-hang.html";
+        else if (page === "support") targetUrl = "faq.html";
         else if (page === "contact") targetUrl = "lien-he.html";
         
         if (currentFilename !== targetUrl) {
@@ -332,6 +333,15 @@ function initMobileMenu() {
 function openModal() {
   const modal = qs("#modal-overlay");
   if (modal) modal.classList.add("open");
+}
+function handleHeaderCta(event) {
+  if (event) event.preventDefault();
+  const modal = qs("#modal-overlay");
+  if (modal) {
+    openModal();
+    return;
+  }
+  window.location.href = "lien-he.html";
 }
 function closeModal() {
   const modal = qs("#modal-overlay");
@@ -766,6 +776,48 @@ function openProductRegisterLink(link) {
   openModal();
 }
 
+function openFeCreditDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "FE001");
+  if (product) openProductDetail(product);
+}
+
+function openShbFinanceDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "SHB001");
+  if (product) openProductDetail(product);
+}
+
+function openTnexFinanceDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "TNEX001");
+  if (product) openProductDetail(product);
+}
+
+function openVibCashLoanDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "VIB001");
+  if (product) openProductDetail(product);
+}
+
+function openLotteFinanceDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "LOTTE001");
+  if (product) openProductDetail(product);
+}
+
+function openF88Detail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "F88001");
+  if (product) openProductDetail(product);
+}
+
+function openSwadDetail(event) {
+  if (event) event.preventDefault();
+  const product = LOAN_PRODUCTS.find((item) => item.id === "GAWAD001");
+  if (product) openProductDetail(product);
+}
+
 function openProductDetail(product) {
   const modal = qs("#product-detail-modal");
   const content = qs("#product-detail-content");
@@ -804,8 +856,8 @@ function openProductDetail(product) {
 }
 
 function createFeCreditDetailHTML(product) {
-  const tags = ["Tư vấn hồ sơ", "Điều kiện tùy sản phẩm", "Đăng ký online", "Hỗ trợ đa kênh"];
-  const tagIcons = ["⚡", "🛡️", "🌐", "🎧"];
+  const tags = ["Duyệt tự động", "Không thế chấp", "Online 100%", "Hỗ trợ 24/7"];
+  const tagIcons = ["⚡", "🛡", "🌐", "🎧"];
 
   return `
     <button class="fe-detail-close" type="button" aria-label="Đóng" onclick="closeProductDetail()">×</button>
@@ -815,9 +867,8 @@ function createFeCreditDetailHTML(product) {
         <img src="${product.logo}" alt="FE Credit" class="fe-detail-logo" />
       </div>
       <div class="fe-detail-title">
-        <span class="fe-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>FE Credit</h2>
-        <p>Thông tin sản phẩm vay tiêu dùng tham khảo, hồ sơ và điều kiện phụ thuộc quy định của FE Credit.</p>
+        <p>Vay nhanh chóng - Thủ tục đơn giản - Giải ngân trong 1h</p>
         <div class="fe-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -827,18 +878,18 @@ function createFeCreditDetailHTML(product) {
     <div class="fe-detail-summary" aria-label="Thông tin tổng quan FE Credit">
       <div class="fe-summary-item">
         <span class="fe-summary-label">Hạn mức vay</span>
-        <strong>Tham khảo</strong>
-        <span>theo hồ sơ</span>
+        <strong>10 - 100</strong>
+        <span>triệu đồng</span>
       </div>
       <div class="fe-summary-item">
-        <span class="fe-summary-label">Thời gian xử lý</span>
-        <strong>Tùy hồ sơ</strong>
-        <span>Theo chính sách từng thời điểm</span>
+        <span class="fe-summary-label">Thời gian giải ngân</span>
+        <strong>1h</strong>
+        <span>Giải ngân nhanh</span>
       </div>
       <div class="fe-summary-item">
-        <span class="fe-summary-label">Lãi suất</span>
-        <strong>Tham khảo</strong>
-        <span>Theo chính sách của đơn vị cung cấp</span>
+        <span class="fe-summary-label">Lãi suất chỉ từ</span>
+        <strong>1.16%</strong>
+        <span>/ tháng</span>
       </div>
       <div class="fe-summary-item">
         <span class="fe-summary-label">Kỳ hạn vay</span>
@@ -851,21 +902,22 @@ function createFeCreditDetailHTML(product) {
       <section class="fe-detail-panel">
         <h3>Ưu điểm nổi bật</h3>
         <ul class="fe-check-list">
-          <li>Hỗ trợ tư vấn quy trình đăng ký</li>
-          <li>Hồ sơ và điều kiện phụ thuộc từng sản phẩm</li>
-          <li>Thời gian xử lý tùy thuộc hồ sơ và chính sách FE Credit</li>
-          <li>Hỗ trợ qua các kênh liên hệ phù hợp</li>
-          <li>Có thể tìm hiểu thông tin đăng ký online</li>
+          <li>Thủ tục đơn giản, chỉ cần CCCD</li>
+          <li>Không cần chứng minh thu nhập</li>
+          <li>Giải ngân nhanh 1h</li>
+          <li>Hỗ trợ khách hàng 24/7</li>
+          <li>Đăng ký online 100%, không cần gặp mặt</li>
         </ul>
+        <div class="fe-wallet-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="fe-detail-panel">
         <h3>Thông tin chi tiết</h3>
-        <div class="fe-info-row"><span>Hạn mức vay</span><strong>Theo chính sách của đơn vị cung cấp</strong></div>
+        <div class="fe-info-row"><span>Hạn mức vay</span><strong>10 - 100 triệu đồng</strong></div>
         <div class="fe-info-row"><span>Thời gian vay</span><strong>6 - 36 tháng</strong></div>
-        <div class="fe-info-row"><span>Lãi suất</span><strong>Theo chính sách của đơn vị cung cấp</strong></div>
+        <div class="fe-info-row"><span>Lãi suất</span><strong>Từ 1.16% / tháng</strong></div>
         <div class="fe-info-row"><span>Độ tuổi</span><strong>Công dân Việt Nam từ 20 - 60 tuổi</strong></div>
-        <div class="fe-info-row"><span>Hình thức giải ngân</span><strong>Phụ thuộc quy định và kết quả phê duyệt</strong></div>
+        <div class="fe-info-row"><span>Hình thức nhận tiền</span><strong>Tiền mặt hoặc chuyển khoản</strong></div>
         <div class="fe-info-row"><span>Khu vực hỗ trợ</span><strong>Toàn quốc</strong></div>
       </section>
 
@@ -878,14 +930,14 @@ function createFeCreditDetailHTML(product) {
           <li>Có tài khoản ngân hàng chính chủ</li>
         </ul>
         <div class="fe-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được bảo mật tuyệt đối và chỉ sử dụng cho mục đích xét duyệt khoản vay.</p>
         </div>
       </section>
     </div>
 
     <button class="fe-register-btn" type="button" onclick="openProductRegisterLink(window.feCreditRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký vay ngay →
     </button>
   `;
 }
@@ -893,31 +945,35 @@ function createFeCreditDetailHTML(product) {
 function createLotteFinanceDetailHTML(product) {
   const tags = [
     "Dành cho nhiều đối tượng",
-    "Đăng ký online",
-    "Thông tin hạn mức tham khảo",
-    "Hỗ trợ đa kênh",
+    "Online 100%",
+    "Hạn mức tới 500 triệu",
+    "Hỗ trợ 24/7",
   ];
   const tagIcons = ["✓", "🌐", "💳", "🎧"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo chính sách" },
+    { icon: "💳", label: "Hạn mức vay", value: "10 - 500", sub: "triệu đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "6 - 60", sub: "tháng" },
     { icon: "👤", label: "Độ tuổi", value: "20 - 60", sub: "tuổi" },
-    { icon: "💰", label: "Điều kiện", value: "Theo hồ sơ", sub: "từng sản phẩm" },
+    { icon: "💰", label: "Thu nhập từ", value: "3 triệu", sub: "/ tháng" },
   ];
   const advantages = [
-    "Đa dạng thông tin sản phẩm cho nhiều nhóm khách hàng tham khảo",
-    "Hạn mức phụ thuộc hồ sơ và chính sách từng thời điểm",
+    "Đa dạng gói vay cho nhiều nhóm khách hàng",
+    "Hạn mức hỗ trợ lên tới 500 triệu đồng",
     "Kỳ hạn linh hoạt từ 6 - 60 tháng",
-    "Khu vực hỗ trợ phụ thuộc chính sách của đơn vị cung cấp",
+    "Hỗ trợ tất cả các tỉnh/thành trên toàn quốc",
     "Có sản phẩm cho khách hàng lương, GOV, doanh nghiệp lớn, BHNT",
   ];
   const detailRows = [
-    ["Hạn mức vay", "Theo chính sách của đơn vị cung cấp"],
+    ["Hạn mức vay", "10 - 500 triệu đồng"],
     ["Thời hạn vay", "6 - 60 tháng"],
     ["Độ tuổi", "20 - 60 tuổi"],
-    ["Thu nhập tối thiểu", "Theo từng gói sản phẩm"],
-    ["Lãi suất", "Theo chính sách của đơn vị cung cấp"],
+    ["Thu nhập tối thiểu", "Từ 3 triệu/tháng"],
+    ["Lãi suất", "Chỉ từ 0.95%/tháng"],
     ["Khu vực hỗ trợ", "Toàn quốc"],
+    ["Hình thức đăng ký", "Online 100%"],
+    ["Hỗ trợ", "24/7"],
+    ["Giải ngân", "Nhanh chóng"],
+    ["Hồ sơ", "Theo từng gói sản phẩm"],
   ];
   const conditions = [
     "Công dân Việt Nam",
@@ -936,7 +992,6 @@ function createLotteFinanceDetailHTML(product) {
         <img src="${product.logo}" alt="LOTTE Finance" class="lotte-detail-logo" />
       </div>
       <div class="lotte-detail-title">
-        <span class="lotte-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>LOTTE Finance</h2>
         <p>Đa dạng gói vay - Hỗ trợ tài chính linh hoạt - Hồ sơ theo từng sản phẩm</p>
         <div class="lotte-detail-tags">
@@ -966,6 +1021,7 @@ function createLotteFinanceDetailHTML(product) {
         <ul class="lotte-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="lotte-bag-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="lotte-detail-panel">
@@ -988,45 +1044,43 @@ function createLotteFinanceDetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="lotte-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được bảo mật tuyệt đối và chỉ sử dụng cho mục đích hỗ trợ tư vấn và xét duyệt vay.</p>
         </div>
       </section>
     </div>
 
     <button class="lotte-register-btn" type="button" onclick="openProductRegisterLink(window.lotteRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký vay ngay cùng LOTTE Finance →
     </button>
-    <p class="lotte-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
 function createF88DetailHTML(product) {
-  const tags = ["Tư vấn hồ sơ", "Điều kiện tùy sản phẩm", "Đăng ký online", "Hỗ trợ đa kênh"];
-  const tagIcons = ["⚡", "🛡️", "🌐", "🎧"];
+  const tags = ["Duyệt nhanh", "Không giữ xe", "Online 100%", "Hỗ trợ 24/7"];
+  const tagIcons = ["⚡", "🛡", "🌐", "🎧"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo hồ sơ" },
+    { icon: "💳", label: "Hạn mức vay", value: "3 triệu - 2 tỷ", sub: "đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "1 - 18", sub: "tháng" },
     { icon: "👤", label: "Độ tuổi", value: "Từ 18", sub: "tuổi" },
-    { icon: "⚡", label: "Xử lý hồ sơ", value: "Tùy hồ sơ", sub: "và chính sách" },
+    { icon: "⚡", label: "Giải ngân nhanh", value: "15 - 30", sub: "phút" },
   ];
   const advantages = [
-    "Hỗ trợ tư vấn hồ sơ và quy trình đăng ký",
-    "Điều kiện tài sản và giấy tờ phụ thuộc quy định của đơn vị cung cấp",
-    "Thời gian xử lý hồ sơ phụ thuộc hồ sơ và chính sách từng thời điểm",
-    "Hạn mức phụ thuộc kết quả thẩm định và quy định của đơn vị cung cấp",
+    "Thủ tục đơn giản, chỉ cần CCCD và cà vẹt xe",
+    "Không giữ xe, chỉ lưu giữ cà vẹt tại phòng giao dịch",
+    "Giải ngân nhanh chóng trong 15 - 30 phút",
+    "Định giá tài sản cao, hỗ trợ lên đến 90% giá trị tài sản",
     "Đa dạng khách hàng: lao động tự do, công nhân, tài xế công nghệ, tiểu thương, nhân viên văn phòng",
-    "Các khoản phí, bảo hiểm nếu có cần kiểm tra trước khi đăng ký",
-    "Quy trình xác minh thông tin phụ thuộc từng hồ sơ",
-    "Hỗ trợ tại 63 tỉnh thành với mạng lưới phòng giao dịch rộng khắp",
   ];
   const detailRows = [
-    ["Hạn mức vay", "Theo kết quả thẩm định và chính sách sản phẩm"],
+    ["Hạn mức vay", "3 triệu - 2 tỷ đồng"],
     ["Thời hạn vay", "1 - 18 tháng"],
-    ["Lãi suất", "Theo chính sách của đơn vị cung cấp"],
+    ["Lãi suất", "Chỉ từ 0.94%/tháng"],
     ["Độ tuổi", "Từ 18 tuổi trở lên"],
     ["Tài sản cầm cố", "Xe máy, ô tô chính chủ"],
-    ["Hình thức giải ngân", "Phụ thuộc quy định và kết quả phê duyệt"],
+    ["Hình thức nhận tiền", "Tiền mặt tại quầy hoặc chuyển khoản ngân hàng"],
+    ["Hình thức thanh toán", "Linh hoạt, trả góp hoặc tất toán trước hạn"],
+    ["Hỗ trợ", "Tư vấn 24/7"],
     ["Khu vực hỗ trợ", "Toàn quốc"],
   ];
   const conditions = [
@@ -1049,7 +1103,7 @@ function createF88DetailHTML(product) {
       <div class="f88-detail-title">
         <span class="f88-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>F88</h2>
-        <p>Thông tin sản phẩm vay cầm cố tài sản tham khảo, điều kiện phụ thuộc quy định của F88.</p>
+        <p>Vay cầm cố tài sản - Thủ tục nhanh chóng - Giải ngân trong 15 - 30 phút</p>
         <div class="f88-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -1077,6 +1131,7 @@ function createF88DetailHTML(product) {
         <ul class="f88-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="f88-car-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="f88-detail-panel">
@@ -1099,54 +1154,53 @@ function createF88DetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="f88-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được bảo mật tuyệt đối và chỉ sử dụng cho mục đích hỗ trợ tư vấn và xét duyệt khoản vay.</p>
         </div>
       </section>
     </div>
 
     <button class="f88-register-btn" type="button" onclick="openProductRegisterLink(window.f88RegisterLink)">
-      Đăng ký tư vấn →
+      🚀 Đăng ký hỗ trợ F88 ngay →
     </button>
-    <p class="f88-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
 function createShbFinanceDetailHTML(product) {
   const tags = [
     "Vay tiền mặt",
-    "Điều kiện thu nhập theo hồ sơ",
+    "Thu nhập từ 3 triệu",
     "Kỳ hạn linh hoạt",
-    "Hỗ trợ tư vấn hồ sơ",
+    "Hỗ trợ tư vấn nhanh",
   ];
   const tagIcons = ["💳", "💰", "⏱", "🎧"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo hồ sơ" },
+    { icon: "💳", label: "Hạn mức vay", value: "10 - 100", sub: "triệu đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "6 - 36", sub: "tháng" },
     { icon: "👤", label: "Độ tuổi", value: "20 - 59", sub: "tuổi" },
-    { icon: "💰", label: "Điều kiện", value: "Theo hồ sơ", sub: "từng sản phẩm" },
+    { icon: "💰", label: "Thu nhập từ", value: "3 triệu", sub: "/ tháng" },
   ];
   const advantages = [
-    "Thông tin sản phẩm vay tiền mặt dành cho khách hàng tham khảo",
-    "Thời gian xử lý phụ thuộc hồ sơ và chính sách SHB Finance",
-    "Hạn mức phụ thuộc hồ sơ và quy định từng thời điểm",
-    "Hỗ trợ nhiều nhóm hồ sơ ACL01, ACL02, ACL03, ACL04",
-    "Điều kiện thu nhập phụ thuộc từng gói sản phẩm",
+    "Sản phẩm vay tiền mặt dành cho khách hàng mới",
+    "Duyệt nhanh - giải ngân siêu tốc",
+    "Gói vay đa dạng 10 - 100 triệu đồng",
+    "Hỗ trợ nhiều nhóm hồ sơ",
+    "Thu nhập tối thiểu từ 3 triệu/tháng",
     "Thời hạn vay linh hoạt từ 6 - 36 tháng",
   ];
   const detailRows = [
-    ["Hạn mức vay", "Theo chính sách của đơn vị cung cấp"],
+    ["Hạn mức vay", "10 - 100 triệu đồng"],
     ["Thời hạn vay", "6 - 36 tháng"],
     ["Độ tuổi", "20 - 59 tuổi"],
-    ["Thu nhập tối thiểu", "Theo từng gói sản phẩm"],
-    ["Lãi suất", "Theo chính sách của đơn vị cung cấp"],
+    ["Thu nhập tối thiểu", "3.000.000 VNĐ/tháng"],
+    ["Lãi suất tham khảo", "Chỉ từ 1.37%/ tháng"],
   ];
   const conditions = [
     "Công dân Việt Nam",
     "Từ 20 - 59 tuổi",
     "Có CCCD gắn chip",
-    "Điều kiện thu nhập phụ thuộc từng gói sản phẩm",
-    "Lịch sử tín dụng được xem xét theo quy định của đơn vị cung cấp",
+    "Thu nhập từ 3 triệu/tháng",
+    "Không có nợ xấu nghiêm trọng",
   ];
 
   return `
@@ -1157,9 +1211,8 @@ function createShbFinanceDetailHTML(product) {
         <img src="${product.logo}" alt="SHB Finance" class="shb-detail-logo" />
       </div>
       <div class="shb-detail-title">
-        <span class="shb-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>SHB Finance</h2>
-        <p>Thông tin vay tiền mặt tham khảo, hồ sơ và kết quả phê duyệt phụ thuộc quy định của SHB Finance.</p>
+        <p>Vay tiền mặt <span class="shb-title-dot">•</span> Duyệt hồ sơ nhanh <span class="shb-title-dot">•</span> Hỗ trợ khách hàng mới</p>
         <div class="shb-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -1187,6 +1240,7 @@ function createShbFinanceDetailHTML(product) {
         <ul class="shb-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="shb-wallet-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="shb-detail-panel">
@@ -1209,49 +1263,48 @@ function createShbFinanceDetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="shb-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin chỉ dùng để hỗ trợ tư vấn và xét duyệt.</p>
         </div>
       </section>
     </div>
 
     <button class="shb-register-btn" type="button" onclick="openProductRegisterLink(window.shbRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký vay ngay →
     </button>
-    <p class="shb-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
 function createTnexFinanceDetailHTML(product) {
   const tags = [
-    "Đăng ký online",
-    "Xử lý theo chính sách",
+    "Online 100%",
+    "Duyệt trong 30 phút",
     "Chỉ cần CCCD",
-    "Qua tài khoản TNEX nếu đủ điều kiện",
+    "Giải ngân qua TNEX",
   ];
   const tagIcons = ["🌐", "⚡", "🪪", "💳"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo hồ sơ" },
+    { icon: "💳", label: "Hạn mức vay", value: "5 - 70", sub: "triệu đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "6 - 36", sub: "tháng" },
     { icon: "👤", label: "Độ tuổi", value: "18 - 50", sub: "tuổi" },
-    { icon: "%", label: "Lãi suất", value: "Theo chính sách", sub: "từng thời điểm" },
+    { icon: "%", label: "Lãi suất", value: "2.26%", sub: "/ tháng" },
   ];
   const advantages = [
-    "Có thể tìm hiểu quy trình đăng ký trên ứng dụng TNEX",
-    "Thời gian xử lý và giải ngân phụ thuộc hồ sơ và chính sách TNEX",
-    "Hạn mức phụ thuộc hồ sơ và quy định từng thời điểm",
+    "Hành trình vay 100% online trên app TNEX",
+    "Phê duyệt và giải ngân trong 30 phút",
+    "Hạn mức vay từ 5 - 70 triệu đồng",
     "Kỳ hạn linh hoạt từ 6 - 36 tháng",
-    "Điều kiện tín dụng được xem xét theo quy định của đơn vị cung cấp",
-    "Hình thức giải ngân phụ thuộc kết quả phê duyệt",
+    "Hỗ trợ CIC trắng, tỷ lệ duyệt cao",
+    "Giải ngân trực tiếp vào tài khoản TNEX",
   ];
   const detailRows = [
     ["Sản phẩm", "TNEX Lending"],
-    ["Hạn mức vay", "Theo chính sách của đơn vị cung cấp"],
+    ["Hạn mức vay", "5 - 70 triệu đồng"],
     ["Thời hạn vay", "6 - 36 tháng"],
     ["Độ tuổi", "18 - 50 tuổi"],
-    ["Lãi suất", "Theo chính sách của đơn vị cung cấp"],
+    ["Lãi suất", "2.26% / tháng"],
     ["Hồ sơ", "CCCD, thông tin cá nhân và eKYC trên ứng dụng TNEX"],
-    ["Hình thức giải ngân", "Phụ thuộc quy định và kết quả phê duyệt"],
+    ["Hình thức giải ngân", "Tài khoản TNEX"],
     ["Khu vực hỗ trợ", "Toàn quốc"],
   ];
   const conditions = [
@@ -1259,6 +1312,7 @@ function createTnexFinanceDetailHTML(product) {
     "Từ 18 - 50 tuổi",
     "Có CCCD còn hiệu lực",
     "Có tài khoản TNEX hoặc mở tài khoản TNEX trong quá trình đăng ký",
+    "Không có nợ xấu nghiêm trọng",
   ];
 
   return `
@@ -1269,9 +1323,8 @@ function createTnexFinanceDetailHTML(product) {
         <img src="${product.logo}" alt="TNEX Finance" class="tnex-detail-logo" />
       </div>
       <div class="tnex-detail-title">
-        <span class="tnex-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>TNEX Finance</h2>
-        <p>Thông tin vay tiêu dùng online tham khảo, hồ sơ và kết quả phê duyệt phụ thuộc quy định của TNEX.</p>
+        <p>Vay tiêu dùng online <span class="tnex-title-dot">•</span> Duyệt nhanh <span class="tnex-title-dot">•</span> Giải ngân qua tài khoản TNEX</p>
         <div class="tnex-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -1299,6 +1352,7 @@ function createTnexFinanceDetailHTML(product) {
         <ul class="tnex-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="tnex-phone-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="tnex-detail-panel">
@@ -1321,16 +1375,15 @@ function createTnexFinanceDetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="tnex-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được mã hóa tuyệt đối và chỉ sử dụng cho mục đích hỗ trợ tư vấn và xét duyệt khoản vay.</p>
         </div>
       </section>
     </div>
 
     <button class="tnex-register-btn" type="button" onclick="openProductRegisterLink(window.tnexRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký vay TNEX ngay →
     </button>
-    <p class="tnex-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
@@ -1339,28 +1392,28 @@ function createSwadDetailHTML(product) {
     "Chỉ cần đăng ký xe",
     "Không giữ xe",
     "Kỳ hạn linh hoạt",
-    "Hỗ trợ tư vấn hồ sơ",
+    "Hỗ trợ nhanh",
   ];
-  const tagIcons = ["💳", "🛡️", "⏱", "🎧"];
+  const tagIcons = ["🚗", "🛡", "⏱", "🎧"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo hồ sơ" },
+    { icon: "💳", label: "Hạn mức vay", value: "Lên tới 2 tỷ", sub: "đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "1 - 36", sub: "tháng" },
     { icon: "👤", label: "Độ tuổi", value: "Từ 20", sub: "tuổi" },
     { icon: "🚗", label: "Tài sản", value: "Ô tô", sub: "chính chủ" },
   ];
   const advantages = [
-    "Phù hợp với khách hàng cần tìm hiểu sản phẩm vay bằng đăng ký xe ô tô",
+    "Có ô tô là có thể vay",
     "Chỉ cần đăng ký xe, khách hàng vẫn tiếp tục sử dụng ô tô hằng ngày",
-    "Phương thức thanh toán phụ thuộc từng gói sản phẩm",
+    "Thanh toán linh hoạt theo điều kiện cho phép",
     "Kỳ hạn vay đa dạng từ 1 - 36 tháng",
+    "Hạn mức có thể lên tới 2 tỷ đồng",
     "Có nhiều gói vay phù hợp nhu cầu khách hàng",
     "Hỗ trợ khách hàng cá nhân và khách hàng doanh nghiệp",
-    "Hạn mức phụ thuộc hồ sơ, tài sản và chính sách từng thời điểm",
-    "Quy trình đăng ký qua MFast, dễ theo dõi trạng thái hồ sơ",
+    "Hồ sơ xử lý nhanh chóng",
   ];
   const detailRows = [
     ["Sản phẩm", "Vay bằng đăng ký xe ô tô"],
-    ["Hạn mức vay", "Theo kết quả thẩm định và chính sách sản phẩm"],
+    ["Hạn mức vay", "Lên tới 2 tỷ đồng"],
     ["Thời hạn vay", "1 - 36 tháng"],
     ["Độ tuổi", "Từ 20 tuổi trở lên"],
     ["Tài sản bảo đảm", "Xe ô tô / đăng ký xe ô tô"],
@@ -1368,10 +1421,6 @@ function createSwadDetailHTML(product) {
     [
       "Khu vực hỗ trợ",
       "Hà Nội, TP. Hồ Chí Minh, Nghệ An, Bình Dương, Đồng Nai, Bắc Ninh, Bắc Giang, Thanh Hóa và khu vực bán kính 40km xung quanh",
-    ],
-    [
-      "Giấy tờ cần có",
-      "CCCD, số điện thoại, khu vực sinh sống, số tiền cần vay, ảnh chụp 2 mặt CCCD, ảnh chụp 2 mặt giấy đăng ký xe ô tô",
     ],
   ];
   const conditions = [
@@ -1394,9 +1443,8 @@ function createSwadDetailHTML(product) {
         <img src="${product.logo}" alt="SWAD" class="swad-detail-logo" />
       </div>
       <div class="swad-detail-title">
-        <span class="swad-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>SWAD</h2>
-        <p>Thông tin vay bằng đăng ký xe ô tô tham khảo, điều kiện phụ thuộc quy định của SWAD.</p>
+        <p>Vay bằng đăng ký xe ô tô <span class="swad-title-dot">•</span> Thanh toán linh hoạt <span class="swad-title-dot">•</span> Hạn mức lên tới 2 tỷ</p>
         <div class="swad-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -1424,6 +1472,7 @@ function createSwadDetailHTML(product) {
         <ul class="swad-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="swad-car-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="swad-detail-panel">
@@ -1446,46 +1495,45 @@ function createSwadDetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="swad-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được bảo mật tuyệt đối và chỉ sử dụng cho mục đích hỗ trợ tư vấn và xét duyệt khoản vay.</p>
         </div>
       </section>
     </div>
 
     <button class="swad-register-btn" type="button" onclick="openProductRegisterLink(window.swadRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký hỗ trợ SAWAD ngay →
     </button>
-    <p class="swad-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
 function createVibCashLoanDetailHTML(product) {
   const tags = [
-    "Đăng ký online",
+    "Online 100%",
     "Không thế chấp",
-    "Lãi suất theo chính sách",
+    "Lãi suất từ 17%/năm",
     "Kỳ hạn đến 60 tháng",
   ];
-  const tagIcons = ["🌐", "🛡️", "%", "⏱"];
+  const tagIcons = ["🌐", "🛡", "%", "⏱"];
   const summaryItems = [
-    { icon: "💳", label: "Hạn mức vay", value: "Tham khảo", sub: "theo hồ sơ" },
+    { icon: "💳", label: "Hạn mức vay", value: "Tối đa 1 tỷ", sub: "đồng" },
     { icon: "⏱", label: "Thời hạn vay", value: "12 - 60", sub: "tháng" },
-    { icon: "%", label: "Lãi suất", value: "Theo chính sách", sub: "từng thời điểm" },
-    { icon: "💰", label: "Điều kiện", value: "Theo hồ sơ", sub: "từng sản phẩm" },
+    { icon: "%", label: "Lãi suất từ", value: "1.16%", sub: "/ tháng" },
+    { icon: "💰", label: "Thu nhập từ", value: "7 triệu", sub: "/ tháng" },
   ];
   const advantages = [
-    "Hỗ trợ tìm hiểu quy trình đăng ký qua điện thoại",
-    "Có thể tìm hiểu thông tin đăng ký online",
+    "Đăng ký khoản vay đơn giản, nhanh chóng qua điện thoại",
+    "Thực hiện đăng ký 100% online",
     "Vay tín chấp, không cần tài sản thế chấp",
-    "Hạn mức phụ thuộc hồ sơ và chính sách từng thời điểm",
+    "Hạn mức vay cao lên đến 1 tỷ đồng",
     "Kỳ hạn vay linh hoạt từ 12 - 60 tháng",
-    "Thời gian xử lý và giải ngân phụ thuộc hồ sơ, hợp đồng và chính sách VIB",
+    "Giải ngân online sau khi khách hàng ký hợp đồng điện tử nếu đủ điều kiện",
   ];
   const detailRows = [
-    ["Hạn mức vay", "Theo chính sách của đơn vị cung cấp"],
+    ["Hạn mức vay", "Tối đa 1 tỷ đồng"],
     ["Thời hạn vay", "12 - 60 tháng"],
-    ["Lãi suất", "Theo chính sách của đơn vị cung cấp"],
-    ["Thu nhập tối thiểu", "Theo từng gói sản phẩm"],
+    ["Lãi suất", "Từ 1.16% / tháng"],
+    ["Thu nhập tối thiểu", "Từ 7 triệu VNĐ/tháng"],
     ["Hình thức vay", "Vay tín chấp"],
     ["Hình thức đăng ký", "Qua app Max"],
     ["Khu vực hỗ trợ", "Toàn quốc"],
@@ -1494,7 +1542,7 @@ function createVibCashLoanDetailHTML(product) {
     "Công dân Việt Nam",
     "Nữ từ 22 - 55 tuổi",
     "Nam từ 22 - 60 tuổi",
-    "Điều kiện thu nhập theo hồ sơ",
+    "Thu nhập từ 7 triệu VNĐ/tháng",
     "Có CCCD còn hiệu lực",
     "Có hồ sơ thu nhập hoặc điều kiện thẻ tín dụng phù hợp",
     "Không thuộc nhóm đối tượng ngoại trừ theo chính sách VIB",
@@ -1508,9 +1556,8 @@ function createVibCashLoanDetailHTML(product) {
         <img src="${product.logo}" alt="VIB Cash Loan" class="vib-detail-logo" />
       </div>
       <div class="vib-detail-title">
-        <span class="vib-detail-badge">✓ Đề xuất cho bạn</span>
         <h2>VIB Cash Loan</h2>
-        <p>Thông tin vay tiền mặt tín chấp tham khảo, hồ sơ và kết quả phê duyệt phụ thuộc quy định của VIB.</p>
+        <p>Vay tiền mặt tín chấp <span class="vib-title-dot">•</span> Đăng ký online qua app Max <span class="vib-title-dot">•</span> Hạn mức lên đến 1 tỷ</p>
         <div class="vib-detail-tags">
           ${tags.map((tag, index) => `<span>${tagIcons[index]} ${tag}</span>`).join("")}
         </div>
@@ -1538,6 +1585,7 @@ function createVibCashLoanDetailHTML(product) {
         <ul class="vib-check-list">
           ${advantages.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="vib-phone-art" aria-hidden="true"><span></span></div>
       </section>
 
       <section class="vib-detail-panel">
@@ -1560,16 +1608,15 @@ function createVibCashLoanDetailHTML(product) {
           ${conditions.map((item) => `<li>${item}</li>`).join("")}
         </ul>
         <div class="vib-security-box">
-          <strong>🔒 Bảo mật thông tin</strong>
-          <p>Thông tin của bạn được xử lý theo chính sách bảo mật và chỉ sử dụng cho mục đích liên hệ tư vấn.</p>
+          <strong>🔒 Cam kết bảo mật</strong>
+          <p>Thông tin của bạn được bảo mật tuyệt đối và chỉ sử dụng cho mục đích hỗ trợ, tư vấn và xét duyệt khoản vay.</p>
         </div>
       </section>
     </div>
 
     <button class="vib-register-btn" type="button" onclick="openProductRegisterLink(window.vibRegisterLink)">
-      Đăng ký tư vấn →
+      Đăng ký vay ngay trên app Max →
     </button>
-    <p class="vib-register-note">Tư vấn miễn phí - Không thu phí hồ sơ từ khách hàng</p>
   `;
 }
 
@@ -1707,6 +1754,13 @@ function closeProductDetail(event) {
 window.openProductDetail = openProductDetail;
 window.closeProductDetail = closeProductDetail;
 window.openProductRegisterLink = openProductRegisterLink;
+window.openFeCreditDetail = openFeCreditDetail;
+window.openShbFinanceDetail = openShbFinanceDetail;
+window.openTnexFinanceDetail = openTnexFinanceDetail;
+window.openVibCashLoanDetail = openVibCashLoanDetail;
+window.openLotteFinanceDetail = openLotteFinanceDetail;
+window.openF88Detail = openF88Detail;
+window.openSwadDetail = openSwadDetail;
 window.feCreditRegisterLink = feCreditRegisterLink;
 window.lotteRegisterLink = lotteRegisterLink;
 window.f88RegisterLink = f88RegisterLink;
@@ -2117,6 +2171,68 @@ function initConsultDynamicFields() {
   });
 }
 
+function getPartnerItemsPerPage() {
+  if (window.matchMedia("(max-width: 440px)").matches) return 1;
+  if (window.matchMedia("(max-width: 820px)").matches) return 2;
+  if (window.matchMedia("(max-width: 1120px)").matches) return 4;
+  return 7;
+}
+
+function initPartnerCarousel() {
+  const section = qs(".partner-section");
+  if (!section) return;
+
+  const grid = section.querySelector(".partner-logo-grid");
+  const cards = Array.from(section.querySelectorAll(".partner-logo-card"));
+  const prevBtn = section.querySelector("[data-partner-prev]");
+  const nextBtn = section.querySelector("[data-partner-next]");
+  const dotsWrap = section.querySelector("[data-partner-dots]");
+  if (!grid || !cards.length || !prevBtn || !nextBtn || !dotsWrap) return;
+
+  let startIndex = 0;
+
+  const render = () => {
+    const itemsPerPage = getPartnerItemsPerPage();
+    const totalItems = cards.length;
+    startIndex = ((startIndex % totalItems) + totalItems) % totalItems;
+
+    const orderedCards = cards.map((_, offset) => {
+      return cards[(startIndex + offset) % totalItems];
+    });
+
+    const fragment = document.createDocumentFragment();
+    orderedCards.forEach((card, index) => {
+      card.classList.toggle("is-hidden", index >= itemsPerPage);
+      fragment.appendChild(card);
+    });
+    grid.appendChild(fragment);
+
+    dotsWrap.innerHTML = "";
+    Array.from({ length: totalItems }).forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.className = index === startIndex ? "is-active" : "";
+      dot.addEventListener("click", () => {
+        startIndex = index;
+        render();
+      });
+      dotsWrap.appendChild(dot);
+    });
+  };
+
+  prevBtn.addEventListener("click", () => {
+    startIndex -= 1;
+    render();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    startIndex += 1;
+    render();
+  });
+
+  window.addEventListener("resize", render);
+  render();
+}
+
 async function submitForm(formType) {
   if (
     !WEBHOOK_URL ||
@@ -2241,6 +2357,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMarquee();
   initNameAutoCapitalization();
   initConsultDynamicFields();
+  initPartnerCarousel();
 
   const modalForm = qs("#modal-form");
   if (modalForm) {
@@ -2270,5 +2387,6 @@ window.switchPage = switchPage;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
 window.openModal = openModal;
+window.handleHeaderCta = handleHeaderCta;
 window.closeModal = closeModal;
 window.closeModalOnBackdrop = closeModalOnBackdrop;

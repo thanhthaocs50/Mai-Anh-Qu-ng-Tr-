@@ -42,25 +42,25 @@
       <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
         <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
       </a>
-      <nav class="nav-tabs" id="nav-tabs">
-        <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
+      <nav class="nav-tabs" id="nav-tabs" aria-label="Điều hướng chính">
         <a class="tab-btn active" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
         <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-        <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+        <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+        <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
       </nav>
       <div class="topbar-right">
-        <button class="btn-cta liquid-glass" type="button" onclick="openModal()">Đăng ký tư vấn</button>
+        <button class="btn-cta liquid-glass" type="button" onclick="handleHeaderCta(event)">Đăng ký ngay</button>
         <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu">
-      <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
       <a class="tab-btn active" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
       <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-      <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
-      <button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">Đăng ký tư vấn</button>
+      <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+      <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      <button class="btn-cta nav-cta" type="button" onclick="handleHeaderCta(event); closeMobileMenu();">Đăng ký ngay</button>
     </div>
   </header>
 
@@ -145,28 +145,75 @@
       <section class="loan-hero" aria-labelledby="loan-hero-title">
         <div class="loan-shell loan-hero__grid">
           <div class="loan-hero__content">
-            <p class="loan-eyebrow">Tư vấn vay tiêu dùng tại Quảng Trị</p>
-            <h1 id="loan-hero-title">Sản phẩm vay tiêu dùng tại Quảng Trị</h1>
-            <p class="loan-hero__lead">Tham khảo các sản phẩm vay tiêu dùng phổ biến, so sánh điều kiện hồ sơ và đăng ký tư vấn để lựa chọn giải pháp phù hợp với nhu cầu cá nhân.</p>
+            <p class="loan-eyebrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-5"/><path d="M12 3v3"/></svg>
+              Tư vấn vay tiêu dùng tại Quảng Trị
+            </p>
+            <h1 id="loan-hero-title">Sản phẩm vay tiêu dùng tại <span>Quảng Trị</span></h1>
+            <p class="loan-hero__lead">Tham khảo các lựa chọn vay tiêu dùng phổ biến và nhận tư vấn để tìm giải pháp phù hợp với nhu cầu cá nhân.</p>
             <div class="loan-hero__actions">
-              <button class="loan-btn loan-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button>
-              <a class="loan-btn loan-btn--secondary" href="#loan-products">Xem sản phẩm vay</a>
+              <button class="loan-btn loan-btn--primary" type="button" onclick="openModal()">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg>
+                Đăng ký tư vấn miễn phí
+              </button>
+              <a class="loan-btn loan-btn--secondary" href="#loan-products">Xem sản phẩm vay <span aria-hidden="true">→</span></a>
             </div>
-            <p class="loan-hero__trust">Tư vấn miễn phí • Không thu phí hồ sơ từ khách hàng • Thông tin được xử lý theo chính sách bảo mật</p>
+            <div class="loan-hero__trust" aria-label="Cam kết tư vấn">
+              <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Tư vấn miễn phí</span>
+              <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Không thu phí hồ sơ</span>
+              <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Không cam kết duyệt vay</span>
+            </div>
           </div>
           <div class="loan-hero__panel">
-            <div class="loan-hero-card">
-              <span>Thông tin minh bạch</span>
-              <h2>So sánh trước khi đăng ký</h2>
-              <p>Khách hàng nên kiểm tra kỹ điều kiện, chi phí, kỳ hạn và khả năng trả nợ trước khi lựa chọn sản phẩm vay.</p>
+            <div class="loan-hero-card loan-hero-products">
+              <div class="loan-hero-products__head">
+                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.3 4.7 5.2.8-3.8 3.7.9 5.2-4.6-2.4-4.6 2.4.9-5.2-3.8-3.7 5.2-.8L12 3Z"/></svg>Danh sách nhanh</span>
+                <div>
+                  <h2>7+ sản phẩm vay nổi bật</h2>
+                  <p>Từ các đối tác tài chính uy tín hàng đầu</p>
+                </div>
+              </div>
+              <div class="loan-hero-products__grid" aria-label="Sản phẩm vay tiêu dùng nổi bật">
+                <article class="loan-hero-product"><img src="images/fe.png" alt="FE Credit" loading="lazy" /><strong>FE Credit</strong></article>
+                <article class="loan-hero-product"><img src="images/shb.png" alt="SHB Finance" loading="lazy" /><strong>SHB Finance</strong></article>
+                <article class="loan-hero-product"><img src="images/lotte.png" alt="Lotte Finance" loading="lazy" /><strong>Lotte Finance</strong></article>
+                <article class="loan-hero-product"><img src="images/f88.png" alt="F88" loading="lazy" /><strong>F88</strong></article>
+                <article class="loan-hero-product"><img src="images/tnex.png" alt="TNEX" loading="lazy" /><strong>TNEX</strong></article>
+                <article class="loan-hero-product"><img src="images/vib.png" alt="VIB" loading="lazy" /><strong>VIB</strong></article>
+                <article class="loan-hero-product"><img src="images/swad.png" alt="Sawad" loading="lazy" /><strong>Sawad</strong></article>
+                <a class="loan-hero-product loan-hero-product--more" href="#loan-products">
+                  <span aria-hidden="true">+</span>
+                  <strong>Xem thêm</strong>
+                  <em>nhiều sản phẩm khác</em>
+                </a>
+              </div>
+              <p class="loan-hero-products__note">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+                Thông tin sản phẩm có thể thay đổi theo chính sách từng đối tác cung cấp.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="loan-trust-note" aria-label="Thông báo minh bạch">
-        <div class="loan-shell">
-          <p>Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính. Việc phê duyệt khoản vay, hạn mức, lãi suất và thời gian xử lý hồ sơ phụ thuộc vào quy định của từng đơn vị cung cấp sản phẩm.</p>
+      <section class="loan-hero-benefits" aria-label="Lợi ích tư vấn vay tiêu dùng">
+        <div class="loan-shell loan-hero-benefits__inner">
+          <article>
+            <span class="loan-hero-benefits__icon loan-hero-benefits__icon--green" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 13h7l-1 7 9-13h-7l1-7Z"/></svg></span>
+            <div><h3>Thủ tục đơn giản</h3><p>Đăng ký nhanh chóng, xét duyệt online tiện lợi.</p></div>
+          </article>
+          <article>
+            <span class="loan-hero-benefits__icon loan-hero-benefits__icon--orange" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5A2.5 2.5 0 0 0 12.5 7H11a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-1.5A2.5 2.5 0 0 1 9 12.5"/></svg></span>
+            <div><h3>Hạn mức linh hoạt</h3><p>Hạn mức vay đa dạng, phù hợp nhiều nhu cầu.</p></div>
+          </article>
+          <article>
+            <span class="loan-hero-benefits__icon loan-hero-benefits__icon--green" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><h3>Giải ngân nhanh</h3><p>Hỗ trợ thông tin sản phẩm có quy trình xử lý nhanh.</p></div>
+          </article>
+          <article>
+            <span class="loan-hero-benefits__icon loan-hero-benefits__icon--orange" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span>
+            <div><h3>Bảo mật tuyệt đối</h3><p>Thông tin khách hàng được bảo mật theo tiêu chuẩn cao nhất.</p></div>
+          </article>
         </div>
       </section>
 
@@ -184,121 +231,278 @@
             <button class="loan-filter__button" type="button" data-loan-filter="digital">Ngân hàng/ngân hàng số</button>
             <button class="loan-filter__button" type="button" data-loan-filter="fast-support">Hỗ trợ nhanh</button>
             <button class="loan-filter__button" type="button" data-loan-filter="secured">Cầm cố/tài sản</button>
-            <button class="loan-filter__button" type="button" data-loan-filter="consult">Cần tư vấn thêm</button>
           </div>
 
           <div class="loan-grid">
-            <article class="loan-card" data-category="finance fast-support">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/fe.png" alt="Logo FE Credit" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
-              <div class="loan-card__content"><h3>FE Credit</h3><p>Hỗ trợ khách hàng tìm hiểu thông tin sản phẩm vay tiêu dùng, điều kiện hồ sơ và quy trình đăng ký phù hợp.</p><dl><dt>Phù hợp với</dt><dd>Người cần tham khảo khoản vay tiêu dùng phục vụ chi tiêu cá nhân.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và thông tin cá nhân cơ bản. Hồ sơ cụ thể phụ thuộc vào quy định của đơn vị cung cấp sản phẩm.</dd></dl><p class="loan-card__note">Lãi suất, hạn mức và thời gian xử lý có thể thay đổi theo từng hồ sơ.</p></div>
-              <a class="loan-card__cta" href="https://fin.mfast.vn/?pageID=6719013&platform=mfast" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--featured loan-card--green" data-category="finance fast-support">
+              <span class="loan-card__corner" aria-hidden="true">★</span>
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/fe.png" alt="Logo FE Credit" loading="lazy" /><div><h3>FE Credit</h3><p>Vay nhanh chóng - Thủ tục đơn giản</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>10 - 100 triệu</strong></div><div><span>Giải ngân</span><strong>1h</strong></div><div><span>Lãi suất chỉ từ</span><strong>1.16%/tháng</strong></div></div>
+              <div class="loan-card__chips"><span>⚡ Duyệt tự động</span><span>🛡 Không thế chấp</span><span>🌐 Online 100%</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://fin.mfast.vn/?pageID=6719013&platform=mfast" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openFeCreditDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="finance">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/shb.png" alt="Logo SHB Finance" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
-              <div class="loan-card__content"><h3>SHB Finance</h3><p>Hỗ trợ tìm hiểu thông tin vay tiêu dùng và các lưu ý về điều kiện đăng ký theo từng sản phẩm.</p><dl><dt>Phù hợp với</dt><dd>Khách hàng muốn so sánh sản phẩm vay tín chấp trước khi đăng ký.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và hồ sơ bổ sung nếu đơn vị cung cấp yêu cầu.</dd></dl><p class="loan-card__note">Kết quả phê duyệt phụ thuộc vào chính sách và hồ sơ thực tế.</p></div>
-              <a class="loan-card__cta" href="https://appay.cloudcms.vn/finance/shb_leadgen_direct/onboarding?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--featured loan-card--orange" data-category="finance fast-support">
+              <span class="loan-card__corner" aria-hidden="true">★</span>
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/shb.png" alt="Logo SHB Finance" loading="lazy" /><div><h3>SHB Finance</h3><p>Hỗ trợ linh hoạt - Duyệt siêu tốc</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>10 - 100 triệu</strong></div><div><span>Kỳ hạn vay</span><strong>6 - 36 tháng</strong></div><div><span>Lãi suất tham khảo</span><strong>1.37%/tháng</strong></div></div>
+              <div class="loan-card__chips"><span>💳 Vay tiền mặt</span><span>💰 Thu nhập từ 3 triệu</span><span>🎧 Tư vấn nhanh</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://appay.cloudcms.vn/finance/shb_leadgen_direct/onboarding?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openShbFinanceDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="finance">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/lotte.png" alt="Logo Lotte Finance" loading="lazy" /><span class="loan-card__tag">Sản phẩm vay tiêu dùng tham khảo</span></div>
-              <div class="loan-card__content"><h3>Lotte Finance</h3><p>Thông tin sản phẩm vay tiêu dùng tham khảo cho nhu cầu chi tiêu cá nhân, mua sắm hoặc cân đối tài chính.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tìm hiểu sản phẩm vay tiêu dùng từ công ty tài chính.</dd><dt>Hồ sơ tham khảo</dt><dd>Thông tin cá nhân cơ bản và hồ sơ theo quy định của đơn vị cung cấp.</dd></dl><p class="loan-card__note">Khách hàng nên kiểm tra kỹ lãi suất, phí và kỳ hạn trước khi đăng ký.</p></div>
-              <a class="loan-card__cta" href="https://vay.lottefinance.vn/" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--compact" data-category="digital fast-support">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/tnex.png" alt="Logo TNEX" loading="lazy" /><div><h3>TNEX</h3><p>100% online - Không gặp mặt</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>5 - 70 triệu</strong></div><div><span>Duyệt hồ sơ</span><strong>30 phút</strong></div><div><span>Lãi suất</span><strong>2.26%/tháng</strong></div></div>
+              <div class="loan-card__chips"><span>🌐 Online 100%</span><span>⚡ Duyệt trong 30 phút</span><span>💳 Giải ngân qua TNEX</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://sc.mfast.vn/tnex_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openTnexFinanceDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="secured fast-support">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/f88.png" alt="Logo F88" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
-              <div class="loan-card__content"><h3>F88</h3><p>Hỗ trợ khách hàng tìm hiểu sản phẩm có liên quan đến tài sản/cầm cố theo quy định của đơn vị cung cấp.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tham khảo giải pháp tài chính có tài sản liên quan.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và giấy tờ liên quan đến tài sản nếu sản phẩm yêu cầu.</dd></dl><p class="loan-card__note">Không chuyển phí trước nếu chưa xác minh rõ ràng điều kiện và đơn vị tiếp nhận.</p></div>
-              <a class="loan-card__cta" href="https://sc.mfast.vn/f88_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--compact" data-category="digital finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/vib.png" alt="Logo VIB" loading="lazy" /><div><h3>VIB Cash Loan</h3><p>Vay tiền mặt tín chấp qua app Max</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>Tối đa 1 tỷ</strong></div><div><span>Thời hạn vay</span><strong>12 - 60 tháng</strong></div><div><span>Lãi suất từ</span><strong>1.16%/tháng</strong></div></div>
+              <div class="loan-card__chips"><span>🌐 Online 100%</span><span>🛡 Không thế chấp</span><span>💰 Thu nhập từ 7 triệu</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://sc.mfast.vn/vib_quick_cash?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openVibCashLoanDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="digital fast-support">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/tnex.png" alt="Logo TNEX" loading="lazy" /><span class="loan-card__tag">Vay online tham khảo</span></div>
-              <div class="loan-card__content"><h3>TNEX</h3><p>Hỗ trợ tìm hiểu quy trình đăng ký online và các thông tin cần kiểm tra trước khi gửi hồ sơ.</p><dl><dt>Phù hợp với</dt><dd>Người muốn tham khảo sản phẩm có quy trình đăng ký trực tuyến.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và điều kiện theo chính sách từng thời điểm.</dd></dl><p class="loan-card__note">Thời gian xử lý phụ thuộc vào hệ thống, hồ sơ và quy định của đơn vị cung cấp.</p></div>
-              <a class="loan-card__cta" href="https://sc.mfast.vn/tnex_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--compact" data-category="finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/lotte.png" alt="Logo Lotte Finance" loading="lazy" /><div><h3>LOTTE Finance</h3><p>Hỗ trợ tài chính linh hoạt</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>10 - 500 triệu</strong></div><div><span>Thời hạn vay</span><strong>6 - 60 tháng</strong></div><div><span>Lãi suất chỉ từ</span><strong>0.95%/tháng</strong></div></div>
+              <div class="loan-card__chips"><span>✓ Nhiều đối tượng</span><span>🌐 Online 100%</span><span>🎧 Hỗ trợ 24/7</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://vay.lottefinance.vn/" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openLotteFinanceDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="digital finance">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/vib.png" alt="Logo VIB" loading="lazy" /><span class="loan-card__tag">Vay tín chấp tham khảo</span></div>
-              <div class="loan-card__content"><h3>VIB Finance</h3><p>Thông tin vay tiêu dùng tham khảo, giúp khách hàng tìm hiểu điều kiện và lưu ý trước khi đăng ký.</p><dl><dt>Phù hợp với</dt><dd>Khách hàng muốn so sánh sản phẩm vay tín chấp với nhu cầu cá nhân.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD, thông tin cá nhân và giấy tờ bổ sung nếu được yêu cầu.</dd></dl><p class="loan-card__note">Không có cam kết về kết quả phê duyệt, hạn mức hoặc thời gian xử lý.</p></div>
-              <a class="loan-card__cta" href="https://sc.mfast.vn/vib_quick_cash?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--compact" data-category="secured finance">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/swad.png" alt="Logo Sawad" loading="lazy" /><div><h3>SAWAD</h3><p>Vay bằng đăng ký xe ô tô</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>Lên tới 2 tỷ</strong></div><div><span>Thời hạn vay</span><strong>1 - 36 tháng</strong></div><div><span>Tài sản</span><strong>Ô tô chính chủ</strong></div></div>
+              <div class="loan-card__chips"><span>🚗 Chỉ cần đăng ký xe</span><span>🛡 Không giữ xe</span><span>🎧 Hỗ trợ nhanh</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://sc.mfast.vn/sawad?sale_code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openSwadDetail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="secured finance">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/swad.png" alt="Logo Sawad" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
-              <div class="loan-card__content"><h3>Sawad</h3><p>Hỗ trợ tìm hiểu thông tin sản phẩm vay/cầm cố tham khảo và các điều kiện hồ sơ liên quan.</p><dl><dt>Phù hợp với</dt><dd>Người cần tham khảo giải pháp tài chính có điều kiện hồ sơ cụ thể.</dd><dt>Hồ sơ tham khảo</dt><dd>CCCD và giấy tờ liên quan theo yêu cầu của đơn vị cung cấp sản phẩm.</dd></dl><p class="loan-card__note">Khách hàng nên đọc kỹ điều khoản trước khi đồng ý đăng ký.</p></div>
-              <a class="loan-card__cta" href="https://sc.mfast.vn/sawad?sale_code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký tư vấn</a>
+            <article class="loan-card loan-card--compact" data-category="secured fast-support">
+              <div class="loan-card__top"><img class="loan-card__logo" src="images/f88.png" alt="Logo F88" loading="lazy" /><div><h3>F88</h3><p>Vay nhanh bằng đăng ký xe</p></div></div>
+              <div class="loan-card__stats"><div><span>Hạn mức vay</span><strong>3 triệu - 2 tỷ</strong></div><div><span>Thời hạn vay</span><strong>1 - 18 tháng</strong></div><div><span>Giải ngân</span><strong>15 - 30 phút</strong></div></div>
+              <div class="loan-card__chips"><span>⚡ Duyệt nhanh</span><span>🛡 Không giữ xe</span><span>🌐 Online 100%</span></div>
+              <div class="loan-card__actions"><a class="loan-card__cta" href="https://sc.mfast.vn/f88_lending?code=6719013" target="_blank" rel="noopener noreferrer">Đăng ký ngay →</a><button class="loan-card__detail" type="button" onclick="openF88Detail(event)">Xem chi tiết</button></div>
             </article>
 
-            <article class="loan-card" data-category="consult finance">
-              <div class="loan-card__top"><img class="loan-card__logo" src="images/mira.png" alt="Logo Mirae Asset" loading="lazy" /><span class="loan-card__tag">Sản phẩm tham khảo</span></div>
-              <div class="loan-card__content"><h3>Mirae Asset</h3><p>Thông tin sản phẩm tài chính cá nhân cần được kiểm tra lại theo chính sách của đơn vị cung cấp trước khi đăng ký.</p><dl><dt>Phù hợp với</dt><dd>Người muốn có thêm lựa chọn để so sánh trước khi quyết định.</dd><dt>Hồ sơ tham khảo</dt><dd>Hồ sơ và điều kiện cụ thể phụ thuộc vào quy định của đơn vị cung cấp.</dd></dl><p class="loan-card__note">Cần xác minh link đăng ký và thông tin sản phẩm chính thức trước khi triển khai sâu.</p></div>
-              <button class="loan-card__cta" type="button" onclick="openModal()">Đăng ký tư vấn</button>
+            <article class="loan-card loan-card--consult" data-category="finance digital fast-support secured">
+              <div class="loan-card__consult-visual" aria-hidden="true"><span></span></div>
+              <div><h3>Không biết chọn sản phẩm nào phù hợp?</h3><p>Để lại thông tin, chuyên viên sẽ tư vấn gợi ý phù hợp miễn phí cho bạn.</p></div>
+              <button class="loan-card__cta" type="button" onclick="openModal()">Tư vấn miễn phí ngay →</button>
+              <div class="loan-card__consult-contact"><span>📞 Hỗ trợ 24/7</span><span>📞 0848 050 626</span></div>
             </article>
           </div>
 
-          <p class="loan-empty" id="loan-empty" hidden>Chưa có sản phẩm phù hợp với bộ lọc này. Bạn có thể gửi thông tin để được tư vấn thêm.</p>
+          <p class="loan-products-disclaimer">🔒 Tài Chính Quảng Trị chỉ là nền tảng kết nối. Chúng tôi không phải là đơn vị cho vay.</p>
+          <p class="loan-empty" id="loan-empty" hidden>Chưa có sản phẩm phù hợp với bộ lọc này.</p>
         </div>
       </section>
 
-      <section class="loan-section loan-process" aria-labelledby="loan-process-title">
-        <div class="loan-shell">
-          <div class="loan-section__header"><span class="loan-section__label">Quy trình</span><h2 id="loan-process-title">Quy trình đăng ký tư vấn</h2></div>
-          <div class="loan-process__grid">
-            <article><span>1</span><h3>Gửi thông tin nhu cầu</h3><p>Điền họ tên, số điện thoại và sản phẩm quan tâm.</p></article>
-            <article><span>2</span><h3>Kiểm tra thông tin cơ bản</h3><p>Tài Chính Quảng Trị hỗ trợ trao đổi nhu cầu và gợi ý sản phẩm phù hợp.</p></article>
-            <article><span>3</span><h3>Chuẩn bị hồ sơ</h3><p>Khách hàng được hướng dẫn chuẩn bị thông tin theo yêu cầu của từng đơn vị cung cấp.</p></article>
-            <article><span>4</span><h3>Theo dõi kết quả xử lý</h3><p>Kết quả phê duyệt, hạn mức và thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm.</p></article>
+      <section class="home-section process-section process-redesign" aria-labelledby="loan-process-title">
+        <div class="home-shell process-redesign__shell">
+          <div class="home-section__header process-redesign__intro">
+            <span class="home-section__label process-redesign__label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.04.04a2 2 0 0 1-2.83 2.83l-.04-.04a1.8 1.8 0 0 0-1.98-.36 1.8 1.8 0 0 0-1.1 1.65V21a2 2 0 0 1-4 0v-.08a1.8 1.8 0 0 0-1.1-1.65 1.8 1.8 0 0 0-1.98.36l-.04.04a2 2 0 0 1-2.83-2.83l.04-.04A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.65-1.1H3a2 2 0 0 1 0-4h.08a1.8 1.8 0 0 0 1.65-1.1 1.8 1.8 0 0 0-.36-1.98l-.04-.04a2 2 0 0 1 2.83-2.83l.04.04a1.8 1.8 0 0 0 1.98.36A1.8 1.8 0 0 0 9.9 3V3a2 2 0 0 1 4 0v.08a1.8 1.8 0 0 0 1.1 1.65 1.8 1.8 0 0 0 1.98-.36l.04-.04a2 2 0 0 1 2.83 2.83l-.04.04a1.8 1.8 0 0 0-.36 1.98c.25.67.86 1.1 1.55 1.1H21a2 2 0 0 1 0 4h-.08A1.8 1.8 0 0 0 19.4 15Z"/></svg>
+              Cách hoạt động
+            </span>
+            <h2 id="loan-process-title">Quy trình đăng ký <span>đơn giản</span></h2>
+            <p>Chỉ với 4 bước, bạn có thể gửi nhu cầu và được hỗ trợ tìm hiểu sản phẩm vay tiêu dùng phù hợp.</p>
+          </div>
+          <div class="process-grid process-redesign__grid">
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">01</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/><path d="M9 7h4"/><path d="M9 11h4"/><path d="M9 15h2"/><path d="m16 19 5-5"/><path d="m18 12 3 3"/></svg></div>
+              <h3>Gửi thông tin nhu cầu</h3>
+              <p>Điền họ tên, số điện thoại và sản phẩm vay bạn đang quan tâm.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">02</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 10h-6"/><path d="M19 7v6"/></svg></div>
+              <h3>Trao đổi hồ sơ</h3>
+              <p>Tài Chính Quảng Trị hỗ trợ nắm nhu cầu, khả năng tài chính và điều kiện cơ bản.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">03</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+              <h3>Tham khảo sản phẩm</h3>
+              <p>Khách hàng được hỗ trợ xem điều kiện, hồ sơ và lưu ý của từng đơn vị cung cấp.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">04</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></div>
+              <h3>Quyết định đăng ký</h3>
+              <p>Phê duyệt, hạn mức và thời gian xử lý phụ thuộc vào chính sách của từng đơn vị.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="loan-section loan-fit" aria-labelledby="loan-fit-title">
-        <div class="loan-shell loan-fit__grid">
-          <div class="loan-section__header"><span class="loan-section__label">Đối tượng phù hợp</span><h2 id="loan-fit-title">Ai nên tìm hiểu vay tiêu dùng?</h2><p>Khách hàng nên cân nhắc khả năng trả nợ trước khi đăng ký bất kỳ sản phẩm vay nào.</p></div>
-          <div class="loan-fit__cards">
-            <article>Người cần chi tiêu cá nhân có kế hoạch trả nợ rõ ràng.</article>
-            <article>Người muốn tham khảo nhiều sản phẩm trước khi đăng ký.</article>
-            <article>Người cần được tư vấn điều kiện hồ sơ dễ hiểu.</article>
-            <article>Người muốn so sánh các lựa chọn phù hợp với khả năng tài chính.</article>
+      <section class="home-section safety-section safety-redesign" aria-labelledby="loan-warning-title">
+        <div class="home-shell safety-redesign__shell">
+          <div class="home-section__header safety-redesign__intro">
+            <span class="home-section__label safety-redesign__label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+              An toàn tài chính
+            </span>
+            <h2 id="loan-warning-title">Lưu ý quan trọng trước khi đăng ký <span>khoản vay</span></h2>
+            <p>Vay tiêu dùng cần được cân nhắc kỹ để khoản trả hàng tháng phù hợp với thu nhập và kế hoạch cá nhân.</p>
+          </div>
+          <div class="safety-list safety-redesign__grid">
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+              <div><h3>Chỉ vay khi thật sự cần</h3><p>Ưu tiên khoản vay có mục đích rõ ràng và kế hoạch trả nợ cụ thể.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V7H4v10h8"/><path d="m16 18 4-4"/><path d="m20 18-4-4"/><path d="M8 11h.01"/><path d="M12 11h.01"/></svg></span>
+              <div><h3>Kiểm tra lãi phí</h3><p>Xem kỹ lãi suất, phí, kỳ hạn và tổng số tiền phải trả trước khi đồng ý.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+              <div><h3>Bảo mật thông tin</h3><p>Không cung cấp OTP, mật khẩu hoặc mã xác thực cho bất kỳ ai.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><circle cx="16" cy="17" r="3"/><path d="M16 15.5v3"/><path d="M14.5 17h3"/></svg></span>
+              <div><h3>Không chuyển phí trước</h3><p>Tuyệt đối không chuyển khoản phí nào nếu chưa xác minh rõ đơn vị và điều kiện.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-5"/></svg></span>
+              <div><h3>Đọc kỹ hợp đồng</h3><p>Đọc kỹ điều khoản của đơn vị cung cấp trước khi xác nhận đăng ký.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 0 0 4h15v8H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h13v4"/><path d="M16 14h.01"/></svg></span>
+              <div><h3>Cân nhắc khả năng trả nợ</h3><p>Chỉ chọn khoản trả góp phù hợp với thu nhập và chi phí sinh hoạt hàng tháng.</p></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="loan-section loan-warning" aria-labelledby="loan-warning-title">
-        <div class="loan-shell loan-warning__grid">
-          <div class="loan-section__header"><span class="loan-section__label">An toàn tài chính</span><h2 id="loan-warning-title">Lưu ý quan trọng trước khi đăng ký</h2></div>
-          <ul>
-            <li>Chỉ vay khi có nhu cầu thật sự cần thiết.</li>
-            <li>Kiểm tra kỹ lãi suất, phí và kỳ hạn thanh toán.</li>
-            <li>Đọc kỹ điều khoản trước khi đồng ý.</li>
-            <li>Không cung cấp mã OTP/mật khẩu cho người khác.</li>
-            <li>Không chuyển phí trước nếu chưa xác minh rõ ràng.</li>
-            <li>Cân nhắc khả năng trả nợ hàng tháng.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="loan-section loan-faq" aria-labelledby="loan-faq-title">
-        <div class="loan-shell loan-faq__grid">
-          <div class="loan-section__header"><span class="loan-section__label">Câu hỏi thường gặp</span><h2 id="loan-faq-title">FAQ vay tiêu dùng</h2></div>
-          <div class="loan-faq__list">
-            <details><summary>Vay tiêu dùng tại Quảng Trị cần giấy tờ gì?</summary><p>Thông thường khách hàng cần CCCD và thông tin cá nhân cơ bản. Tùy từng sản phẩm, đơn vị cung cấp có thể yêu cầu thêm thông tin thu nhập hoặc giấy tờ liên quan.</p></details>
-            <details><summary>Tài Chính Quảng Trị có trực tiếp cho vay không?</summary><p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay và không quyết định phê duyệt hồ sơ.</p></details>
-            <details><summary>Tôi có phải trả phí tư vấn không?</summary><p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></details>
-            <details><summary>Thời gian xử lý hồ sơ bao lâu?</summary><p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p></details>
-            <details><summary>Lãi suất vay tiêu dùng là bao nhiêu?</summary><p>Lãi suất có thể thay đổi theo từng sản phẩm, thời điểm và hồ sơ khách hàng. Khách hàng nên kiểm tra thông tin cụ thể trước khi đăng ký.</p></details>
+      <section class="home-section home-faq faq-redesign" aria-labelledby="loan-faq-title">
+        <div class="home-shell faq-redesign__shell">
+          <div class="home-section__header faq-redesign__intro">
+            <span class="home-section__label faq-redesign__label">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 5.8 1c-.7 1.2-2.1 1.5-2.6 2.5"/><path d="M12 17h.01"/></svg>
+              Câu hỏi thường gặp
+            </span>
+            <h2 id="loan-faq-title"><span>FAQ</span> vay tiêu dùng</h2>
+            <p>Giải đáp nhanh các câu hỏi phổ biến trước khi bạn gửi thông tin tư vấn khoản vay.</p>
+            <div class="faq-redesign__illustration" aria-hidden="true">
+              <div class="faq-paper"><span></span><i></i><i></i><i></i></div>
+              <div class="faq-question">?</div>
+              <div class="faq-bubble faq-bubble--green">...</div>
+              <div class="faq-bubble faq-bubble--orange">?</div>
+            </div>
+          </div>
+          <div class="faq-list faq-redesign__list">
+            <details open>
+              <summary><span class="faq-icon faq-icon--chat"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span><strong>Vay tiêu dùng tại Quảng Trị cần giấy tờ gì?</strong><span class="faq-chevron">⌃</span></summary>
+              <p>Thông thường khách hàng cần CCCD và thông tin cá nhân cơ bản. Tùy từng sản phẩm, đơn vị cung cấp có thể yêu cầu thêm thông tin thu nhập hoặc giấy tờ liên quan.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M8 12a4 4 0 1 0 8 0"/><path d="M12 7v6"/><path d="M9 4h6"/></svg></span><strong>Tài Chính Quảng Trị có trực tiếp cho vay không?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay và không quyết định phê duyệt hồ sơ.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span><strong>Tôi có phải trả phí tư vấn không?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><strong>Thời gian xử lý hồ sơ bao lâu?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span><strong>Lãi suất vay tiêu dùng là bao nhiêu?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Lãi suất có thể thay đổi theo từng sản phẩm, thời điểm và hồ sơ khách hàng. Khách hàng nên kiểm tra thông tin cụ thể trước khi đăng ký.</p>
+            </details>
           </div>
         </div>
       </section>
 
-      <section class="loan-cta" aria-labelledby="loan-cta-title">
-        <div class="loan-shell loan-cta__inner">
-          <div><h2 id="loan-cta-title">Cần tư vấn sản phẩm vay phù hợp?</h2><p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu sản phẩm vay tiêu dùng phù hợp với nhu cầu và khả năng tài chính của bạn.</p></div>
-          <div class="loan-cta__actions">
-            <button class="loan-btn loan-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button>
-            <a class="loan-btn loan-btn--secondary" href="tel:0848050626">Gọi ngay 0848 050 626</a>
-            <a class="loan-btn loan-btn--zalo" href="https://zalo.me/0977216260">Nhắn Zalo</a>
+      <section class="home-cta cta-redesign" aria-labelledby="loan-cta-title">
+        <div class="home-shell cta-redesign__inner">
+          <div class="cta-redesign__content">
+            <h2 id="loan-cta-title">Cần tư vấn<br />sản phẩm vay phù hợp?</h2>
+            <p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu sản phẩm vay tiêu dùng phù hợp với nhu cầu và khả năng tài chính của bạn.</p>
+          </div>
+          <div class="cta-redesign__side">
+            <div class="cta-redesign__benefits">
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg></span><strong>Tư vấn miễn phí</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span><strong>Bảo mật thông tin</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 2"/></svg></span><strong>Hỗ trợ nhanh chóng</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 15 3-3a3 3 0 0 1 4 4l-4 4a3 3 0 0 1-4 0l-1-1"/><path d="m12 9-3 3a3 3 0 0 1-4-4l4-4a3 3 0 0 1 4 0l1 1"/></svg></span><strong>Gợi ý phù hợp</strong></div>
+            </div>
+            <div class="cta-redesign__actions">
+              <button class="home-btn home-btn--primary" type="button" onclick="openModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Đăng ký tư vấn miễn phí
+              </button>
+              <a class="home-btn home-btn--secondary" href="tel:0848050626">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.12.89.33 1.76.63 2.59a2 2 0 0 1-.45 2.11L9 10.71a16 16 0 0 0 4.29 4.29l1.29-1.29a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.59.63A2 2 0 0 1 22 16.92Z"/></svg>
+                Gọi ngay 0848 050 626
+              </a>
+              <a class="home-btn home-btn--zalo" href="https://zalo.me/0977216260"><span>Zalo</span> Nhắn Zalo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partner-section" aria-labelledby="loan-partner-title">
+        <div class="partner-section__curve" aria-hidden="true"></div>
+        <div class="partner-section__dots" aria-hidden="true"></div>
+        <div class="partner-section__inner">
+          <span class="partner-section__badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a3 3 0 0 0 4.2 0l3.6-3.6a3 3 0 0 0 0-4.2l-2-2"/><path d="m13 7-2-2a3 3 0 0 0-4.2 0L3.2 8.6a3 3 0 0 0 0 4.2l2 2"/><path d="m8 12 8 0"/></svg>
+            Đối tác
+          </span>
+          <h2 id="loan-partner-title">Đối Tác <span>Vay Tiêu Dùng</span></h2>
+          <div class="partner-section__line" aria-hidden="true"></div>
+          <p>Tham khảo sản phẩm từ các đơn vị tài chính, ngân hàng và đối tác hỗ trợ vay tiêu dùng phổ biến.</p>
+
+          <div class="partner-carousel" aria-label="Đối tác vay tiêu dùng">
+            <button class="partner-carousel__arrow" type="button" aria-label="Đối tác trước" data-partner-prev>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <div class="partner-logo-grid">
+              <article class="partner-logo-card">
+                <img src="images/fe.png" alt="FE Credit" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/shb.png" alt="SHB Finance" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/lotte.png" alt="Lotte Finance" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/tnex.png" alt="TNEX" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/vib.png" alt="VIB" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/f88.png" alt="F88" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/mira.png" alt="Mirae Asset" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/swad.png" alt="Sawad" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/fevtd.png" alt="FE Credit vay tiêu dùng" loading="lazy" />
+              </article>
+            </div>
+
+            <button class="partner-carousel__arrow" type="button" aria-label="Đối tác tiếp theo" data-partner-next>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="partner-carousel__dots" aria-hidden="true" data-partner-dots>
+            <span class="is-active"></span><span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
       </section>

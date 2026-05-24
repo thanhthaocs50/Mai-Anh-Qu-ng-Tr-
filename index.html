@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 
 <head>
@@ -93,87 +93,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .hero-visual {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 600px;
-    }
-
-    .hero-visual img {
-      position: absolute;
-      display: block;
-      max-width: none;
-    }
-
-    .hero-phong {
-      bottom: -2%;
-      right: -10%;
-      width: 110%;
-      z-index: 2;
-      filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15));
-    }
-
-    .hero-icon {
-      top: 5%;
-      right: 45%;
-      width: 45%;
-      z-index: 4;
-      animation: floatIcon 4s ease-in-out infinite;
-    }
-
-    @keyframes floatIcon {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-15px);
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .hero-visual {
-        min-height: 500px;
-      }
-
-      .hero-phong {
-        width: 100%;
-        right: 0;
-      }
-
-      .hero-icon {
-        width: 40%;
-        right: 40%;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .hero-right {
-        width: 100% !important;
-      }
-
-      .hero-visual {
-        min-height: 400px;
-      }
-
-      .hero-phong {
-        width: 100%;
-        right: 0%;
-        bottom: 5%;
-      }
-
-      .hero-icon {
-        width: 35%;
-        right: 30%;
-        top: 0%;
-      }
-    }
-  </style>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/script.js"></script>
   <link rel="icon"
@@ -186,30 +105,25 @@
       <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
         <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
       </a>
-      <nav class="nav-tabs" id="nav-tabs">
-        <a class="tab-btn active" data-page="home" href="index.html">Trang chủ</a>
+      <nav class="nav-tabs" id="nav-tabs" aria-label="Điều hướng chính">
         <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
         <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-        <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+        <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+        <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
       </nav>
       <div class="topbar-right">
-        <button class="btn-cta liquid-glass" onclick="openModal()">
-          Đăng ký tư vấn
-        </button>
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng"
-          aria-controls="mobile-menu" aria-expanded="false">
+        <button class="btn-cta liquid-glass" type="button" onclick="handleHeaderCta(event)">Đăng ký ngay</button>
+        <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu">
-      <a class="tab-btn active" data-page="home" href="index.html">Trang chủ</a>
       <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
       <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-      <a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
-      <button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">
-        Đăng ký tư vấn
-      </button>
+      <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+      <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      <button class="btn-cta nav-cta" type="button" onclick="handleHeaderCta(event); closeMobileMenu();">Đăng ký ngay</button>
     </div>
   </header>
   <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
@@ -310,91 +224,554 @@
 
   <main>
     <div id="page-home" class="page active home-page">
-      <section class="home-hero" aria-labelledby="home-hero-title">
-        <div class="home-shell home-hero__grid">
-          <div class="home-hero__content">
-            <p class="home-eyebrow">Kênh tư vấn và kết nối thông tin tài chính tại Quảng Trị</p>
-            <h1 id="home-hero-title">Tư vấn giải pháp tài chính phù hợp tại Quảng Trị</h1>
-            <p class="home-hero__lead">So sánh nhiều sản phẩm vay tiêu dùng, mở tài khoản ngân hàng và hỗ trợ lựa chọn giải pháp phù hợp với nhu cầu, hồ sơ và khả năng thanh toán của bạn.</p>
-            <div class="home-hero__actions">
-              <button class="home-btn home-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button>
-              <a class="home-btn home-btn--secondary" href="#san-pham-noi-bat">Xem sản phẩm</a>
+      <section class="hero-v2" aria-labelledby="hero-v2-title">
+        <div class="hero-v2__container">
+          <!-- Left Column: Text Content -->
+          <div class="hero-v2__left">
+            <div class="hero-v2__badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Kênh tư vấn &amp; kết nối thông tin tài chính tại Quảng Trị</span>
             </div>
-            <p class="home-hero__trust">Tư vấn miễn phí • Không thu phí hồ sơ từ khách hàng • Thông tin được xử lý theo chính sách bảo mật</p>
+            <h1 id="hero-v2-title">Tư vấn giải pháp<br>tài chính phù hợp<br>tại <span class="hero-v2__green">Quảng</span> <span class="hero-v2__orange">Trị</span></h1>
+            <p class="hero-v2__desc">So sánh nhiều sản phẩm vay tiêu dùng, mở tài khoản ngân hàng và hỗ trợ lựa chọn giải pháp phù hợp với nhu cầu, hồ sơ và khả năng thanh toán của bạn.</p>
+            <div class="hero-v2__cta">
+              <button class="hero-v2__btn hero-v2__btn--primary" type="button" onclick="openModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Đăng ký tư vấn miễn phí
+              </button>
+              <a class="hero-v2__btn hero-v2__btn--outline" href="#san-pham-noi-bat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Xem sản phẩm
+              </a>
+            </div>
+            <div class="hero-v2__trust">
+              <div class="hero-v2__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#079447" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Tư vấn miễn phí</span>
+              </div>
+              <div class="hero-v2__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#079447" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Không thu phí hồ sơ từ khách hàng</span>
+              </div>
+              <div class="hero-v2__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#079447" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Thông tin được xử lý bảo mật</span>
+              </div>
+            </div>
           </div>
-          <div class="home-hero__visual" aria-label="Minh họa tư vấn tài chính cá nhân">
-            <div class="home-visual-card">
-              <img src="images/phong.png" alt="Chuyên viên tư vấn tài chính cá nhân tại Quảng Trị" loading="eager" />
-              <div class="home-visual-note"><strong>Tư vấn minh bạch</strong><span>Không trực tiếp cấp khoản vay hoặc quyết định phê duyệt hồ sơ.</span></div>
+          <!-- Right Column: Visual -->
+          <div class="hero-v2__right">
+            <div class="hero-v2__visual">
+              <img src="images/phong.png" alt="Tư vấn tài chính Quảng Trị" class="hero-v2__person hero-person-img" loading="eager" />
+              <span class="hero-v2__bubble hero-v2__bubble--bank" aria-hidden="true">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M4 9h16"/><path d="M9 21v-8"/><path d="M15 21v-8"/></svg>
+              </span>
+              <span class="hero-v2__bubble hero-v2__bubble--card" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+              </span>
+              <span class="hero-v2__bubble hero-v2__bubble--shield" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+              </span>
+              <span class="hero-v2__bubble hero-v2__bubble--coin" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5A2.5 2.5 0 0 0 12.5 7H11a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-1.5A2.5 2.5 0 0 1 9 12.5"/></svg>
+              </span>
+              <div class="hero-v2__info-panel">
+                <div class="hero-v2__float-card hero-v2__float-card--1">
+                  <div class="hero-v2__float-icon hero-v2__float-icon--green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                  </div>
+                  <div>
+                    <strong>Tư vấn minh bạch</strong>
+                    <span>Không trực tiếp cấp khoản vay hoặc quyết định phê duyệt hồ sơ.</span>
+                  </div>
+                </div>
+                <div class="hero-v2__panel-divider" aria-hidden="true"></div>
+                <div class="hero-v2__float-card hero-v2__float-card--2">
+                  <div class="hero-v2__float-icon hero-v2__float-icon--orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  </div>
+                  <div>
+                    <strong>Hỗ trợ nhanh</strong>
+                    <span>Tư vấn tận tâm, phản hồi nhanh qua Zalo và điện thoại.</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="trust-note" aria-label="Thông báo minh bạch"><div class="home-shell"><p>Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính. Việc phê duyệt khoản vay, hạn mức, lãi suất, ưu đãi và thời gian xử lý hồ sơ phụ thuộc vào chính sách của từng đơn vị cung cấp sản phẩm.</p></div></section>
+      <section class="numbers-section" aria-labelledby="numbers-title">
+        <div class="numbers-section__decor numbers-section__decor--left" aria-hidden="true"></div>
+        <div class="numbers-section__decor numbers-section__decor--right" aria-hidden="true"></div>
+        <div class="numbers-section__dots numbers-section__dots--left" aria-hidden="true"></div>
+        <div class="numbers-section__dots numbers-section__dots--right" aria-hidden="true"></div>
+        <div class="numbers-section__inner">
+          <span class="numbers-section__badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+            Vì sao chọn Tài Chính Quảng Trị?
+          </span>
+          <h2 id="numbers-title">Những con số biết nói</h2>
+          <div class="numbers-section__line" aria-hidden="true"></div>
 
-      <section class="home-section service-section" aria-labelledby="service-title">
-        <div class="home-shell">
-          <div class="home-section__header"><span class="home-section__label">Dịch vụ chính</span><h2 id="service-title">Bạn đang cần hỗ trợ gì?</h2></div>
-          <div class="service-grid">
-            <article class="service-card"><span class="service-card__icon" aria-hidden="true">01</span><h3>Vay tiêu dùng</h3><p>Tham khảo các sản phẩm vay tiêu dùng, vay tín chấp và nhận tư vấn hồ sơ phù hợp với nhu cầu cá nhân.</p><a class="home-link" href="vay-tieu-dung.html">Xem sản phẩm vay</a></article>
-            <article class="service-card"><span class="service-card__icon" aria-hidden="true">02</span><h3>Mở tài khoản ngân hàng</h3><p>Tìm hiểu các sản phẩm tài khoản ngân hàng, thẻ ngân hàng và ngân hàng số phù hợp với nhu cầu sử dụng.</p><a class="home-link" href="the-ngan-hang.html">Xem sản phẩm ngân hàng</a></article>
-            <article class="service-card"><span class="service-card__icon" aria-hidden="true">03</span><h3>Tư vấn cá nhân</h3><p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu sản phẩm tài chính phù hợp.</p><a class="home-link" href="lien-he.html">Liên hệ tư vấn</a></article>
+          <div class="numbers-grid">
+            <article class="number-card number-card--green">
+              <span class="number-card__icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M4 9h16"/><path d="M9 21v-8"/><path d="M15 21v-8"/><path d="M10 5V3h4v2"/></svg>
+              </span>
+              <strong>10+</strong>
+              <h3>Tổ chức tài chính</h3>
+              <p>Đối tác uy tín hàng đầu</p>
+            </article>
+
+            <article class="number-card number-card--orange">
+              <span class="number-card__icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.6 2.3 4.7 4.5 4.7 9.2A4.7 4.7 0 0 1 12 17a4.7 4.7 0 0 1-4.7-4.8C7.3 7.5 10.4 5.3 12 3Z"/><path d="M8 17h8a3 3 0 0 1 3 3v1H5v-1a3 3 0 0 1 3-3Z"/><path d="M12 8v5"/><path d="M10.5 9.5h2.2a1.3 1.3 0 0 1 0 2.6h-1.4a1.3 1.3 0 0 0 0 2.6h2.2"/></svg>
+              </span>
+              <em>Lên đến</em>
+              <strong>2 Tỷ</strong>
+              <h3>Hạn mức tối đa</h3>
+              <p>Hỗ trợ khoản vay giá trị cao</p>
+            </article>
+
+            <article class="number-card number-card--green">
+              <span class="number-card__icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.2 2.4 4.7 13.2c-.5.7 0 1.8.9 1.8h4.8l-1.5 6.3c-.2 1 .9 1.6 1.6.8l8.8-11.1c.5-.7 0-1.8-.9-1.8h-5l1.4-5.9c.2-1-.9-1.6-1.6-.9Z"/></svg>
+              </span>
+              <em>Nhanh nhất</em>
+              <strong>1 Giờ</strong>
+              <h3>Giải ngân nhanh nhất</h3>
+              <p>Nhận tiền nhanh chóng, kịp thời</p>
+            </article>
+
+            <article class="number-card number-card--orange">
+              <span class="number-card__icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="12" cy="14" r="3.2"/><path d="M2.5 20.5c.5-3.1 2.4-5 5.5-5 .8 0 1.5.1 2.1.4-1.1.9-1.9 2.3-2.1 4.6H2.5Z"/><path d="M16 20.5c-.2-2.3-1-3.7-2.1-4.6.6-.3 1.3-.4 2.1-.4 3.1 0 5 1.9 5.5 5H16Z"/><path d="M6.8 22c.5-3.5 2.3-5.4 5.2-5.4s4.7 1.9 5.2 5.4H6.8Z"/></svg>
+              </span>
+              <strong>5.000+</strong>
+              <h3>Khách hàng đã tin tưởng</h3>
+              <p>Đồng hành và hài lòng</p>
+            </article>
+
+            <article class="number-card number-card--green">
+              <span class="number-card__icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.7 7-11a7 7 0 1 0-14 0c0 6.3 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/><path d="M4 21h16"/></svg>
+              </span>
+              <strong>34</strong>
+              <h3>Tỉnh thành</h3>
+              <p>Phục vụ trên toàn quốc</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="home-section why-home-section" aria-labelledby="why-home-title">
-        <div class="home-shell">
-          <div class="home-section__header"><span class="home-section__label">Niềm tin & minh bạch</span><h2 id="why-home-title">Vì sao nên tham khảo thông tin tại Tài Chính Quảng Trị?</h2></div>
-          <div class="trust-grid">
-            <article class="trust-card"><h3>Tư vấn dễ hiểu</h3><p>Hỗ trợ giải thích thông tin sản phẩm theo cách đơn giản, dễ nắm bắt.</p></article>
-            <article class="trust-card"><h3>So sánh nhiều lựa chọn</h3><p>Người dùng có thể tham khảo nhiều sản phẩm vay tiêu dùng, tài khoản ngân hàng và thẻ ngân hàng.</p></article>
-            <article class="trust-card"><h3>Minh bạch thông tin</h3><p>Không cam kết sai sự thật về lãi suất, hạn mức, ưu đãi hoặc kết quả phê duyệt.</p></article>
-            <article class="trust-card"><h3>Không thu phí tư vấn</h3><p>Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></article>
-            <article class="trust-card"><h3>Bảo mật thông tin</h3><p>Thông tin cá nhân được xử lý theo chính sách bảo mật của website.</p></article>
-            <article class="trust-card"><h3>Hỗ trợ đa kênh</h3><p>Hỗ trợ qua điện thoại, Zalo hoặc Facebook trong thời gian phù hợp.</p></article>
+      <section class="home-section service-section support-redesign" aria-labelledby="service-title">
+        <div class="home-shell support-redesign__shell">
+          <div class="home-section__header support-redesign__intro">
+            <span class="home-section__label support-redesign__label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+              Dịch vụ chính
+            </span>
+            <h2 id="service-title">Bạn đang cần <span>hỗ trợ</span> gì?</h2>
+            <p>Chúng tôi cung cấp các giải pháp tài chính phù hợp, đồng hành cùng bạn trên mọi kế hoạch tài chính.</p>
+          </div>
+          <div class="service-grid support-redesign__grid">
+            <article class="service-card support-card">
+              <div class="support-card__top">
+                <span class="support-card__number">01</span>
+                <span class="support-card__icon support-card__icon--green" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-2.5A2.5 2.5 0 0 0 15 4.5H9A2.5 2.5 0 0 0 6.5 7H4a2 2 0 0 0-2 2v8.5A2.5 2.5 0 0 0 4.5 20h15a2.5 2.5 0 0 0 2.5-2.5V9a2 2 0 0 0-2-2Z"/><path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"/><path d="M18 13h3"/><circle cx="18" cy="13" r="1"/></svg>
+                </span>
+              </div>
+              <h3>Vay tiêu dùng</h3>
+              <p>Tham khảo các sản phẩm vay tiêu dùng, vay tín chấp và nhận tư vấn hồ sơ phù hợp với nhu cầu cá nhân.</p>
+              <a class="home-link support-card__link" href="vay-tieu-dung.html">Xem sản phẩm vay <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="service-card support-card">
+              <div class="support-card__top">
+                <span class="support-card__number">02</span>
+                <span class="support-card__icon support-card__icon--green" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M9 21v-8"/><path d="M15 21v-8"/><path d="M4 9h16"/><path d="M10 5V3h4v2"/></svg>
+                </span>
+              </div>
+              <h3>Mở tài khoản ngân hàng</h3>
+              <p>Tìm hiểu các sản phẩm tài khoản ngân hàng, thẻ ngân hàng và ngân hàng số phù hợp với nhu cầu sử dụng.</p>
+              <a class="home-link support-card__link" href="the-ngan-hang.html">Xem sản phẩm ngân hàng <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="service-card support-card">
+              <div class="support-card__top">
+                <span class="support-card__number">03</span>
+                <span class="support-card__icon support-card__icon--green" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M14 20h-2a4 4 0 0 1-4-4"/><path d="M14 20a2 2 0 0 0 2-2"/></svg>
+                </span>
+              </div>
+              <h3>Tư vấn cá nhân</h3>
+              <p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu sản phẩm tài chính phù hợp.</p>
+              <a class="home-link support-card__link" href="lien-he.html">Liên hệ tư vấn <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section why-home-section why-redesign" aria-labelledby="why-home-title">
+        <div class="home-shell why-redesign__shell">
+          <div class="home-section__header why-redesign__intro">
+            <span class="home-section__label why-redesign__label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+              Niềm tin &amp; minh bạch
+            </span>
+            <h2 id="why-home-title">Vì sao nên tham khảo thông tin tại <span>Tài Chính</span> <em>Quảng Trị</em>?</h2>
+            <p>Chúng tôi mang đến cho bạn thông tin tài chính chính xác, cập nhật và minh bạch để bạn tự tin đưa ra quyết định phù hợp nhất.</p>
+            <div class="why-redesign__visual" aria-hidden="true">
+              <div class="why-visual-card">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="why-visual-shield">
+                <svg width="92" height="92" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m8.8 12 2.2 2.2 4.8-5"/></svg>
+              </div>
+              <div class="why-visual-search">
+                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="m8.5 11 1.7 1.7 3.6-4"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="trust-grid why-redesign__grid">
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--green" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
+              </span>
+              <div><h3>Tư vấn dễ hiểu</h3><p>Hỗ trợ giải thích thông tin sản phẩm theo cách đơn giản, dễ nắm bắt.</p></div>
+            </article>
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--orange" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 7h18"/><path d="m6 7-3 7h6L6 7Z"/><path d="m18 7-3 7h6l-3-7Z"/><path d="M8 21h8"/></svg>
+              </span>
+              <div><h3>So sánh nhiều lựa chọn</h3><p>Người dùng có thể tham khảo nhiều sản phẩm vay tiêu dùng, tài khoản ngân hàng và thẻ ngân hàng.</p></div>
+            </article>
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--green" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+              </span>
+              <div><h3>Minh bạch thông tin</h3><p>Không cam kết sai sự thật về lãi suất, hạn mức, ưu đãi hoặc kết quả phê duyệt.</p></div>
+            </article>
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--orange" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5A2.5 2.5 0 0 0 12.5 7H11a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-1.5A2.5 2.5 0 0 1 9 12.5"/></svg>
+              </span>
+              <div><h3>Không thu phí tư vấn</h3><p>Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></div>
+            </article>
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--green" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg>
+              </span>
+              <div><h3>Bảo mật thông tin</h3><p>Thông tin cá nhân được xử lý theo chính sách bảo mật của website.</p></div>
+            </article>
+            <article class="trust-card why-card">
+              <span class="why-card__icon why-card__icon--orange" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M14 20h-2a4 4 0 0 1-4-4"/></svg>
+              </span>
+              <div><h3>Hỗ trợ đa kênh</h3><p>Hỗ trợ qua điện thoại, Zalo hoặc Facebook trong thời gian phù hợp.</p></div>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="home-section featured-products" id="san-pham-noi-bat" aria-labelledby="featured-products-title">
-        <div class="home-shell">
-          <div class="home-section__header"><span class="home-section__label">Sản phẩm tham khảo</span><h2 id="featured-products-title">Sản phẩm tài chính nổi bật</h2><p>Trang chủ chỉ giới thiệu ngắn để khách hàng dễ định hướng. Thông tin chi tiết nên kiểm tra lại trước khi đăng ký.</p></div>
-          <div class="product-preview-group">
-            <div class="product-preview-heading"><h3>Vay tiêu dùng</h3><a href="vay-tieu-dung.html">Xem tất cả</a></div>
-            <div class="product-preview-grid">
-              <article class="product-preview-card"><img src="images/fe.png" alt="Logo FE Credit" loading="lazy" /><span>Vay tiêu dùng</span><h3>FE Credit</h3><p>Thông tin sản phẩm vay tiêu dùng tham khảo.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/shb.png" alt="Logo SHB Finance" loading="lazy" /><span>Vay tiêu dùng</span><h3>SHB Finance</h3><p>Tham khảo điều kiện và hồ sơ theo từng sản phẩm.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/lotte.png" alt="Logo Lotte Finance" loading="lazy" /><span>Vay tiêu dùng</span><h3>Lotte Finance</h3><p>Hỗ trợ tìm hiểu thông tin vay phục vụ chi tiêu cá nhân.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/f88.png" alt="Logo F88" loading="lazy" /><span>Vay tiêu dùng</span><h3>F88</h3><p>Thông tin sản phẩm tham khảo, điều kiện tùy đơn vị cung cấp.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/tnex.png" alt="Logo TNEX" loading="lazy" /><span>Vay tiêu dùng</span><h3>TNEX</h3><p>Tìm hiểu quy trình đăng ký và chính sách sản phẩm.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/vib.png" alt="Logo VIB" loading="lazy" /><span>Vay tiêu dùng</span><h3>VIB</h3><p>Thông tin vay tiêu dùng tham khảo theo hồ sơ khách hàng.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/swad.png" alt="Logo Sawad" loading="lazy" /><span>Vay tiêu dùng</span><h3>Sawad</h3><p>Hồ sơ và điều kiện cụ thể phụ thuộc quy định từng thời điểm.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/mira.png" alt="Logo Mirae Asset" loading="lazy" /><span>Vay tiêu dùng</span><h3>Mirae Asset</h3><p>Thông tin sản phẩm tài chính cá nhân cần kiểm tra trước khi đăng ký.</p><a href="vay-tieu-dung.html">Xem chi tiết</a></article>
-            </div>
+        <div class="home-shell featured-redesign">
+          <div class="featured-redesign__header">
+            <span class="featured-redesign__badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.47 6.03.88-4.36 4.25 1.03 6-5.4-2.84-5.4 2.84 1.03-6-4.36-4.25 6.03-.88L12 3Z"/></svg>
+              Sản phẩm nổi bật
+            </span>
+            <h2 id="featured-products-title">Sản Phẩm Nổi Bật</h2>
+            <p>Được nhiều khách hàng tin chọn</p>
           </div>
-          <div class="product-preview-group">
-            <div class="product-preview-heading"><h3>Ngân hàng / tài khoản / thẻ</h3><a href="the-ngan-hang.html">Xem tất cả</a></div>
-            <div class="product-preview-grid">
-              <article class="product-preview-card"><img src="images/mb.png" alt="Logo MB Bank" loading="lazy" /><span>Ngân hàng</span><h3>MB Bank</h3><p>Tìm hiểu tài khoản ngân hàng số và dịch vụ liên quan.</p><a href="the-ngan-hang.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/UOB.png" alt="Logo UOB Bank" loading="lazy" /><span>Ngân hàng</span><h3>UOB</h3><p>Thông tin sản phẩm ngân hàng tham khảo theo nhu cầu cá nhân.</p><a href="the-ngan-hang.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/VPBank.png" alt="Logo VPBank" loading="lazy" /><span>Ngân hàng</span><h3>VPBank</h3><p>Hỗ trợ tìm hiểu tài khoản, thẻ và ngân hàng số.</p><a href="the-ngan-hang.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/vib.png" alt="Logo VIB Bank" loading="lazy" /><span>Ngân hàng</span><h3>VIB</h3><p>Tham khảo sản phẩm tài khoản và thẻ phù hợp nhu cầu.</p><a href="the-ngan-hang.html">Xem chi tiết</a></article>
-              <article class="product-preview-card"><img src="images/PVcombank.png" alt="Logo PVcomBank" loading="lazy" /><span>Ngân hàng</span><h3>PVcomBank</h3><p>Thông tin ngân hàng và sản phẩm liên quan cần xác minh khi đăng ký.</p><a href="the-ngan-hang.html">Xem chi tiết</a></article>
-            </div>
+
+          <div class="featured-redesign__grid">
+            <article class="featured-loan-card featured-loan-card--green">
+              <div class="featured-loan-card__head">
+                <img src="images/fe.png" alt="Logo FE Credit" loading="lazy" />
+                <div>
+                  <h3>FE Credit</h3>
+                  <p>Vay nhanh chóng - Thủ tục đơn giản - Giải ngân trong 24h</p>
+                </div>
+                <span class="featured-loan-card__tag">Phê duyệt nhanh</span>
+              </div>
+              <div class="featured-loan-card__stats">
+                <div><span>Hạn mức vay</span><strong>10 - 100</strong><em>triệu</em></div>
+                <div><span>Giải ngân</span><strong>24h</strong><em></em></div>
+                <div><span>Thời gian vay</span><strong>6 - 36</strong><em>tháng</em></div>
+              </div>
+              <div class="featured-loan-card__chips"><span>Duyệt tự động</span><span>Không thế chấp</span></div>
+              <div class="featured-loan-card__actions"><a class="featured-btn featured-btn--primary" href="vay-tieu-dung.html">Đăng ký ngay →</a><a class="featured-btn featured-btn--outline" href="vay-tieu-dung.html">Xem chi tiết</a></div>
+            </article>
+
+            <article class="featured-loan-card featured-loan-card--orange is-featured">
+              <span class="featured-loan-card__ribbon">Nổi bật</span>
+              <div class="featured-loan-card__head">
+                <img src="images/shb.png" alt="Logo SHB Finance" loading="lazy" />
+                <div>
+                  <h3>SHB Finance</h3>
+                  <p>Hỗ trợ linh hoạt - Giải ngân nhanh 12-24h</p>
+                </div>
+              </div>
+              <div class="featured-loan-card__stats">
+                <div><span>Hạn mức vay</span><strong>10 - 100</strong><em>triệu</em></div>
+                <div><span>Giải ngân</span><strong>12 - 24h</strong><em></em></div>
+                <div><span>Thời gian vay</span><strong>6 - 48</strong><em>tháng</em></div>
+              </div>
+              <div class="featured-loan-card__chips"><span>Hỗ trợ 24/7</span><span>Không thế chấp</span></div>
+              <div class="featured-loan-card__actions"><a class="featured-btn featured-btn--primary" href="vay-tieu-dung.html">Đăng ký ngay →</a><a class="featured-btn featured-btn--outline" href="vay-tieu-dung.html">Xem chi tiết</a></div>
+            </article>
+
+            <article class="featured-loan-card featured-loan-card--blue">
+              <div class="featured-loan-card__head">
+                <img src="images/tnex.png" alt="Logo TNEX" loading="lazy" />
+                <div>
+                  <h3>TNEX</h3>
+                  <p>100% online - Không gặp mặt - Duyệt 30 phút</p>
+                </div>
+                <span class="featured-loan-card__tag">100% online</span>
+              </div>
+              <div class="featured-loan-card__stats">
+                <div><span>Hạn mức vay</span><strong>5 - 70</strong><em>triệu</em></div>
+                <div><span>Giải ngân</span><strong>2 giờ</strong><em></em></div>
+                <div><span>Thời gian vay</span><strong>3 - 24</strong><em>tháng</em></div>
+              </div>
+              <div class="featured-loan-card__chips"><span>Vay online 100%</span><span>Không cần gặp mặt</span></div>
+              <div class="featured-loan-card__actions"><a class="featured-btn featured-btn--primary" href="vay-tieu-dung.html">Đăng ký ngay →</a><a class="featured-btn featured-btn--outline" href="vay-tieu-dung.html">Xem chi tiết</a></div>
+            </article>
           </div>
-          <p class="product-preview-note">Thông tin sản phẩm có thể thay đổi theo chính sách từng đơn vị cung cấp. Khách hàng nên kiểm tra kỹ thông tin trước khi đăng ký.</p>
+
+          <div class="featured-benefit-strip" aria-label="Lợi ích nổi bật">
+            <div><span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span><strong>An toàn &amp; bảo mật</strong><p>Thông tin được bảo mật tuyệt đối</p></div>
+            <div><span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-9 13h7l-1 7 9-13h-7l1-7Z"/></svg></span><strong>Giải ngân nhanh chóng</strong><p>Nhận tiền chỉ trong 2 giờ</p></div>
+            <div><span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11h6"/><path d="M9 15h6"/><path d="M8 3h8l3 3v15H5V3h3Z"/><path d="M16 3v4h4"/></svg></span><strong>Thủ tục đơn giản</strong><p>Chỉ cần CMND/CCCD</p></div>
+            <div><span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M14 20h-2a4 4 0 0 1-4-4"/></svg></span><strong>Hỗ trợ tận tâm 24/7</strong><p>Đội ngũ tư vấn chuyên nghiệp</p></div>
+          </div>
         </div>
       </section>
 
-      <section class="home-section process-section" aria-labelledby="process-title"><div class="home-shell"><div class="home-section__header"><span class="home-section__label">Cách hoạt động</span><h2 id="process-title">Quy trình tư vấn đơn giản</h2></div><div class="process-grid"><article class="process-card"><span>1</span><h3>Gửi thông tin cơ bản</h3><p>Điền họ tên, số điện thoại và nhu cầu cần tư vấn.</p></article><article class="process-card"><span>2</span><h3>Trao đổi nhu cầu</h3><p>Tài Chính Quảng Trị hỗ trợ tìm hiểu nhu cầu và gợi ý nhóm sản phẩm phù hợp.</p></article><article class="process-card"><span>3</span><h3>Tham khảo sản phẩm</h3><p>Khách hàng được hỗ trợ xem thông tin điều kiện, hồ sơ và lưu ý liên quan.</p></article><article class="process-card"><span>4</span><h3>Quyết định đăng ký</h3><p>Việc đăng ký, phê duyệt và sử dụng sản phẩm phụ thuộc vào chính sách của từng đơn vị cung cấp.</p></article></div></div></section>
+      <section class="home-section process-section process-redesign" aria-labelledby="process-title">
+        <div class="home-shell process-redesign__shell">
+          <div class="home-section__header process-redesign__intro">
+            <span class="home-section__label process-redesign__label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.04.04a2 2 0 0 1-2.83 2.83l-.04-.04a1.8 1.8 0 0 0-1.98-.36 1.8 1.8 0 0 0-1.1 1.65V21a2 2 0 0 1-4 0v-.08a1.8 1.8 0 0 0-1.1-1.65 1.8 1.8 0 0 0-1.98.36l-.04.04a2 2 0 0 1-2.83-2.83l.04-.04A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.65-1.1H3a2 2 0 0 1 0-4h.08a1.8 1.8 0 0 0 1.65-1.1 1.8 1.8 0 0 0-.36-1.98l-.04-.04a2 2 0 0 1 2.83-2.83l.04.04a1.8 1.8 0 0 0 1.98.36A1.8 1.8 0 0 0 9.9 3V3a2 2 0 0 1 4 0v.08a1.8 1.8 0 0 0 1.1 1.65 1.8 1.8 0 0 0 1.98-.36l.04-.04a2 2 0 0 1 2.83 2.83l-.04.04a1.8 1.8 0 0 0-.36 1.98c.25.67.86 1.1 1.55 1.1H21a2 2 0 0 1 0 4h-.08A1.8 1.8 0 0 0 19.4 15Z"/></svg>
+              Cách hoạt động
+            </span>
+            <h2 id="process-title">Quy trình tư vấn <span>đơn giản</span></h2>
+            <p>Chỉ với 4 bước đơn giản, bạn sẽ nhận được giải pháp tài chính phù hợp nhanh chóng và hoàn toàn miễn phí.</p>
+          </div>
+          <div class="process-grid process-redesign__grid">
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">01</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/><path d="M9 7h4"/><path d="M9 11h4"/><path d="M9 15h2"/><path d="m16 19 5-5"/><path d="m18 12 3 3"/></svg></div>
+              <h3>Gửi thông tin cơ bản</h3>
+              <p>Điền họ tên, số điện thoại và nhu cầu cần tư vấn.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">02</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 10h-6"/><path d="M19 7v6"/></svg></div>
+              <h3>Trao đổi nhu cầu</h3>
+              <p>Tài Chính Quảng Trị hỗ trợ tìm hiểu nhu cầu và gợi ý nhóm sản phẩm phù hợp.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">03</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+              <h3>Tham khảo sản phẩm</h3>
+              <p>Khách hàng được hỗ trợ xem thông tin điều kiện, hồ sơ và lưu ý liên quan.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+            <article class="process-card process-step-card">
+              <span class="process-step-card__number">04</span>
+              <div class="process-step-card__icon" aria-hidden="true"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></div>
+              <h3>Quyết định đăng ký</h3>
+              <p>Việc đăng ký, phê duyệt và sử dụng sản phẩm phụ thuộc vào chính sách của từng đơn vị cung cấp.</p>
+              <span class="process-step-card__arrow" aria-hidden="true">→</span>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      <section class="home-section safety-section" aria-labelledby="safety-title"><div class="home-shell safety-grid"><div class="home-section__header safety-header"><span class="home-section__label">An toàn tài chính</span><h2 id="safety-title">Lưu ý an toàn trước khi đăng ký sản phẩm tài chính</h2></div><ul class="safety-list"><li>Chỉ đăng ký sản phẩm khi hiểu rõ nhu cầu và khả năng tài chính.</li><li>Kiểm tra kỹ lãi suất, phí, kỳ hạn hoặc điều kiện ưu đãi nếu có.</li><li>Không cung cấp OTP, mật khẩu hoặc mã xác thực cho bất kỳ ai.</li><li>Không chuyển phí trước nếu chưa xác minh rõ ràng.</li><li>Đọc kỹ điều khoản của đơn vị cung cấp sản phẩm trước khi đồng ý.</li><li>Cân nhắc khả năng trả nợ trước khi đăng ký khoản vay.</li></ul></div></section>
+      <section class="home-section safety-section safety-redesign" aria-labelledby="safety-title">
+        <div class="home-shell safety-redesign__shell">
+          <div class="home-section__header safety-redesign__intro">
+            <span class="home-section__label safety-redesign__label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+              An toàn tài chính
+            </span>
+            <h2 id="safety-title">Lưu ý an toàn trước khi đăng ký sản phẩm <span>tài chính</span></h2>
+            <p>Để bảo vệ quyền lợi của bạn, hãy ghi nhớ những lưu ý quan trọng sau:</p>
+          </div>
+          <div class="safety-list safety-redesign__grid">
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+              <div><h3>Chỉ đăng ký khi hiểu rõ</h3><p>Chỉ đăng ký sản phẩm khi hiểu rõ nhu cầu và khả năng tài chính của bản thân.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V7H4v10h8"/><path d="m16 18 4-4"/><path d="m20 18-4-4"/><path d="M8 11h.01"/><path d="M12 11h.01"/></svg></span>
+              <div><h3>Kiểm tra kỹ điều kiện</h3><p>Kiểm tra kỹ lãi suất, phí, kỳ hạn hoặc điều kiện ưu đãi nếu có trước khi quyết định.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+              <div><h3>Bảo mật thông tin</h3><p>Không cung cấp OTP, mật khẩu hoặc mã xác thực cho bất kỳ ai, dưới bất kỳ hình thức nào.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><circle cx="16" cy="17" r="3"/><path d="M16 15.5v3"/><path d="M14.5 17h3"/></svg></span>
+              <div><h3>Không chuyển phí trước</h3><p>Tuyệt đối không chuyển bất kỳ khoản phí nào trước khi chưa xác minh rõ ràng.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--green" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-5"/></svg></span>
+              <div><h3>Đọc kỹ hợp đồng</h3><p>Đọc kỹ điều khoản của đơn vị cung cấp sản phẩm trước khi đồng ý.</p></div>
+            </article>
+            <article class="safety-tip-card">
+              <span class="safety-tip-card__icon safety-tip-card__icon--orange" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 0 0 4h15v8H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h13v4"/><path d="M16 14h.01"/></svg></span>
+              <div><h3>Cân nhắc khả năng trả nợ</h3><p>Cân nhắc kỹ khả năng trả nợ trước khi đăng ký khoản vay để đảm bảo an toàn tài chính.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      <section class="home-section home-faq" aria-labelledby="home-faq-title"><div class="home-shell home-faq__grid"><div class="home-section__header"><span class="home-section__label">Câu hỏi thường gặp</span><h2 id="home-faq-title">FAQ ngắn</h2></div><div class="faq-list"><details><summary>Tài Chính Quảng Trị có trực tiếp cho vay không?</summary><p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không trực tiếp cấp khoản vay và không quyết định phê duyệt hồ sơ.</p></details><details><summary>Tôi có phải trả phí tư vấn không?</summary><p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></details><details><summary>Thông tin của tôi có được bảo mật không?</summary><p>Thông tin cá nhân được sử dụng để liên hệ tư vấn và được xử lý theo chính sách bảo mật của website.</p></details><details><summary>Tôi nên chọn sản phẩm vay hay tài khoản ngân hàng như thế nào?</summary><p>Bạn nên cân nhắc nhu cầu thực tế, khả năng tài chính, điều kiện hồ sơ và đọc kỹ thông tin sản phẩm trước khi đăng ký.</p></details><details><summary>Thời gian xử lý hồ sơ bao lâu?</summary><p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p></details></div></div></section>
+      <section class="home-section home-faq faq-redesign" aria-labelledby="home-faq-title">
+        <div class="home-shell faq-redesign__shell">
+          <div class="home-section__header faq-redesign__intro">
+            <span class="home-section__label faq-redesign__label">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 5.8 1c-.7 1.2-2.1 1.5-2.6 2.5"/><path d="M12 17h.01"/></svg>
+              Câu hỏi thường gặp
+            </span>
+            <h2 id="home-faq-title"><span>FAQ</span> ngắn</h2>
+            <p>Giải đáp những câu hỏi phổ biến nhất về dịch vụ vay, thẻ và hỗ trợ tài chính.</p>
+            <div class="faq-redesign__illustration" aria-hidden="true">
+              <div class="faq-paper"><span></span><i></i><i></i><i></i></div>
+              <div class="faq-question">?</div>
+              <div class="faq-bubble faq-bubble--green">•••</div>
+              <div class="faq-bubble faq-bubble--orange">?</div>
+            </div>
+          </div>
+          <div class="faq-list faq-redesign__list">
+            <details open>
+              <summary><span class="faq-icon faq-icon--chat"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span><strong>Tài Chính Quảng Trị có trực tiếp cho vay không?</strong><span class="faq-chevron">⌃</span></summary>
+              <p>Không. Chúng tôi là kênh tư vấn và kết nối với các ngân hàng, công ty tài chính uy tín. Chúng tôi giúp bạn chọn giải pháp phù hợp nhất.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M8 12a4 4 0 1 0 8 0"/><path d="M12 7v6"/><path d="M9 4h6"/></svg></span><strong>Tôi có phải trả phí tư vấn không?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span><strong>Thông tin của tôi có được bảo mật không?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Thông tin cá nhân được sử dụng để liên hệ tư vấn và được xử lý theo chính sách bảo mật của website.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span><strong>Tôi nên chọn sản phẩm vay hay tài khoản ngân hàng như thế nào?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Bạn nên cân nhắc nhu cầu thực tế, khả năng tài chính, điều kiện hồ sơ và đọc kỹ thông tin sản phẩm trước khi đăng ký.</p>
+            </details>
+            <details>
+              <summary><span class="faq-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><strong>Thời gian xử lý hồ sơ bao lâu?</strong><span class="faq-chevron">⌄</span></summary>
+              <p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
-      <section class="home-cta" aria-labelledby="home-cta-title"><div class="home-shell home-cta__inner"><div><h2 id="home-cta-title">Cần tư vấn sản phẩm tài chính phù hợp?</h2><p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu các sản phẩm vay tiêu dùng, tài khoản ngân hàng hoặc thẻ ngân hàng phù hợp với nhu cầu cá nhân.</p></div><div class="home-cta__actions"><button class="home-btn home-btn--primary" type="button" onclick="openModal()">Đăng ký tư vấn miễn phí</button><a class="home-btn home-btn--secondary" href="tel:0848050626">Gọi ngay 0848 050 626</a><a class="home-btn home-btn--zalo" href="https://zalo.me/0977216260">Nhắn Zalo</a></div></div></section>
+      <section class="home-cta cta-redesign" aria-labelledby="home-cta-title">
+        <div class="home-shell cta-redesign__inner">
+          <div class="cta-redesign__content">
+            <h2 id="home-cta-title">Cần tư vấn<br />sản phẩm tài chính phù hợp?</h2>
+            <p>Gửi thông tin cơ bản để được hỗ trợ tìm hiểu các sản phẩm vay tiêu dùng, tài khoản ngân hàng hoặc thẻ ngân hàng phù hợp với nhu cầu cá nhân.</p>
+          </div>
+          <div class="cta-redesign__side">
+            <div class="cta-redesign__benefits">
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg></span><strong>Tư vấn miễn phí</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span><strong>Bảo mật thông tin</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 2"/></svg></span><strong>Hỗ trợ nhanh chóng</strong></div>
+              <div><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 15 3-3a3 3 0 0 1 4 4l-4 4a3 3 0 0 1-4 0l-1-1"/><path d="m12 9-3 3a3 3 0 0 1-4-4l4-4a3 3 0 0 1 4 0l1 1"/></svg></span><strong>Giải pháp phù hợp</strong></div>
+            </div>
+            <div class="cta-redesign__actions">
+              <button class="home-btn home-btn--primary" type="button" onclick="openModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Đăng ký tư vấn miễn phí
+              </button>
+              <a class="home-btn home-btn--secondary" href="tel:0848050626">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.12.89.33 1.76.63 2.59a2 2 0 0 1-.45 2.11L9 10.71a16 16 0 0 0 4.29 4.29l1.29-1.29a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.59.63A2 2 0 0 1 22 16.92Z"/></svg>
+                Gọi ngay 0848 050 626
+              </a>
+              <a class="home-btn home-btn--zalo" href="https://zalo.me/0977216260"><span>Zalo</span> Nhắn Zalo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partner-section" aria-labelledby="partner-title">
+        <div class="partner-section__curve" aria-hidden="true"></div>
+        <div class="partner-section__dots" aria-hidden="true"></div>
+        <div class="partner-section__inner">
+          <span class="partner-section__badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a3 3 0 0 0 4.2 0l3.6-3.6a3 3 0 0 0 0-4.2l-2-2"/><path d="m13 7-2-2a3 3 0 0 0-4.2 0L3.2 8.6a3 3 0 0 0 0 4.2l2 2"/><path d="m8 12 8 0"/></svg>
+            Đối tác
+          </span>
+          <h2 id="partner-title">Đối Tác <span>Tài Chính Uy Tín</span></h2>
+          <div class="partner-section__line" aria-hidden="true"></div>
+          <p>Hợp tác cùng các tổ chức tài chính hàng đầu, mang đến giải pháp an toàn và tối ưu cho khách hàng.</p>
+
+          <div class="partner-carousel" aria-label="Đối tác tài chính">
+            <button class="partner-carousel__arrow" type="button" aria-label="Đối tác trước" data-partner-prev>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <div class="partner-logo-grid">
+              <article class="partner-logo-card">
+                <img src="images/vib.png" alt="VIB" loading="lazy" />
+                <span>Ngân hàng Quốc Tế</span>
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/lotte.png" alt="Lotte Finance" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/mb.png" alt="MB Bank" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/PVcombank.png" alt="PVcomBank" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/VPBank.png" alt="VPBank" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/UOB.png" alt="UOB" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/fe.png" alt="FE Credit" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/shb.png" alt="SHB Finance" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/tnex.png" alt="TNEX" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/f88.png" alt="F88" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/mira.png" alt="Mirae Asset" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/swad.png" alt="Sawad" loading="lazy" />
+              </article>
+              <article class="partner-logo-card">
+                <img src="images/fevtd.png" alt="FE Credit vay tiêu dùng" loading="lazy" />
+              </article>
+            </div>
+
+            <button class="partner-carousel__arrow" type="button" aria-label="Đối tác tiếp theo" data-partner-next>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="partner-carousel__dots" aria-hidden="true" data-partner-dots>
+            <span class="is-active"></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
     </div>
 
     <footer id="site-footer">
@@ -443,3 +820,4 @@
 </body>
 
 </html>
+

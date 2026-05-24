@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 
 <head>
@@ -128,32 +128,25 @@
       <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
         <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
       </a>
-      <nav class="nav-tabs" id="nav-tabs">
-        <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
+      <nav class="nav-tabs" id="nav-tabs" aria-label="Điều hướng chính">
         <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
         <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-        <a class="tab-btn" href="faq.html">FAQ</a>
+        <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
         <a class="tab-btn active" data-page="contact" href="lien-he.html">Liên hệ</a>
       </nav>
       <div class="topbar-right">
-        <button class="btn-cta liquid-glass" onclick="openModal()">
-          Đăng ký tư vấn
-        </button>
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng"
-          aria-controls="mobile-menu" aria-expanded="false">
+        <button class="btn-cta liquid-glass" type="button" onclick="handleHeaderCta(event)">Đăng ký ngay</button>
+        <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu">
-      <a class="tab-btn" data-page="home" href="index.html">Trang chủ</a>
       <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
       <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
-      <a class="tab-btn" href="faq.html">FAQ</a>
+      <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
       <a class="tab-btn active" data-page="contact" href="lien-he.html">Liên hệ</a>
-      <button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">
-        Đăng ký tư vấn
-      </button>
+      <button class="btn-cta nav-cta" type="button" onclick="handleHeaderCta(event); closeMobileMenu();">Đăng ký ngay</button>
     </div>
   </header>
   <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
@@ -1007,3 +1000,4 @@
 </body>
 
 </html>
+

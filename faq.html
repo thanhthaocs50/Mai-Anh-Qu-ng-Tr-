@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 
 <head>
@@ -52,11 +52,29 @@
 <body>
   <header id="topbar">
     <div class="topbar-inner">
-      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ"><span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span></a>
-      <nav class="nav-tabs" id="nav-tabs"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn active" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a></nav>
-      <div class="topbar-right"><button class="btn-cta liquid-glass" type="button" onclick="openModal()">Đăng ký tư vấn</button><button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
+        <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
+      </a>
+      <nav class="nav-tabs" id="nav-tabs" aria-label="Điều hướng chính">
+        <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+        <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+        <a class="tab-btn active" data-page="support" href="faq.html">Hỗ trợ</a>
+        <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      </nav>
+      <div class="topbar-right">
+        <button class="btn-cta liquid-glass" type="button" onclick="handleHeaderCta(event)">Đăng ký ngay</button>
+        <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div class="mobile-menu" id="mobile-menu"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn active" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a><button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">Đăng ký tư vấn</button></div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+      <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+      <a class="tab-btn active" data-page="support" href="faq.html">Hỗ trợ</a>
+      <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      <button class="btn-cta nav-cta" type="button" onclick="handleHeaderCta(event); closeMobileMenu();">Đăng ký ngay</button>
+    </div>
   </header>
 
   <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)"><div class="modal-card modal-card-new animate-fade-rise"><button class="modal-close" type="button" onclick="closeModal()" aria-label="Đóng form tư vấn">×</button><div class="form-header-new"><div class="fh-icon-wrapper"><span class="fh-icon">☎</span></div><div class="fh-text"><h3>Đăng ký tư vấn miễn phí</h3><p>Điền thông tin, Tài Chính Quảng Trị sẽ liên hệ hỗ trợ tư vấn trong thời gian phù hợp.</p></div></div><form id="modal-form" class="quick-consult-form"><div class="form-row"><div class="form-group-new"><label for="mf-name">Họ và tên <span class="text-red">*</span></label><div class="input-wrapper"><input type="text" id="mf-name" placeholder="Nhập họ và tên" autocomplete="name" required /></div></div><div class="form-group-new"><label for="mf-phone">Số điện thoại <span class="text-red">*</span></label><div class="input-wrapper"><input type="tel" id="mf-phone" placeholder="Nhập số điện thoại" autocomplete="tel" required pattern="[0-9]{10}" maxlength="10" /></div></div></div><div class="form-group-new mt-3"><label for="mf-product">Nhu cầu tư vấn <span class="text-red">*</span></label><div class="input-wrapper"><select id="mf-product" required><option value="">-- Chọn nhu cầu --</option><option>Vay tiêu dùng</option><option>Mở tài khoản/thẻ ngân hàng</option><option>Cần tư vấn thêm</option></select></div></div><p class="form-privacy-note">Thông tin của bạn chỉ được sử dụng để liên hệ tư vấn và được xử lý theo Chính sách bảo mật.</p>
@@ -70,25 +88,51 @@
 
   <main class="faq-page">
     <section class="faq-hero">
-      <div class="faq-shell">
-        <p class="faq-eyebrow">FAQ</p>
-        <h1>Câu hỏi thường gặp</h1>
-        <p>Tổng hợp các câu hỏi phổ biến về vay tiêu dùng, mở tài khoản ngân hàng, phí tư vấn và cách Tài Chính Quảng Trị hỗ trợ người dùng tìm hiểu sản phẩm tài chính.</p>
-        <div class="faq-hero__actions"><a class="faq-btn faq-btn--primary" href="lien-he.html">Liên hệ tư vấn</a><a class="faq-btn faq-btn--secondary" href="vay-tieu-dung.html">Xem sản phẩm vay</a></div>
+      <div class="faq-shell faq-hero__grid">
+        <div class="faq-hero__content">
+          <p class="faq-eyebrow">FAQ</p>
+          <h1>Câu hỏi thường gặp</h1>
+          <p>Tổng hợp các câu hỏi phổ biến về vay tiêu dùng, mở tài khoản ngân hàng, phí tư vấn và cách Tài Chính Quảng Trị hỗ trợ người dùng tìm hiểu sản phẩm tài chính.</p>
+          <div class="faq-hero__actions">
+            <a class="faq-btn faq-btn--primary" href="lien-he.html">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 14a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg>
+              Liên hệ tư vấn
+            </a>
+            <a class="faq-btn faq-btn--secondary" href="vay-tieu-dung.html">Xem sản phẩm vay <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="faq-hero__visual" aria-hidden="true">
+          <div class="faq-visual-question">?</div>
+          <div class="faq-visual-card">FAQ</div>
+          <div class="faq-visual-chat"><span></span><span></span><span></span></div>
+          <div class="faq-visual-plant"><i></i><i></i><b></b></div>
+          <div class="faq-visual-orbit faq-visual-orbit--bank">🏦</div>
+          <div class="faq-visual-orbit faq-visual-orbit--chart">📊</div>
+        </div>
       </div>
     </section>
 
+    <nav class="faq-category-nav" aria-label="Danh mục câu hỏi thường gặp">
+      <div class="faq-shell faq-category-nav__inner">
+        <a class="active" href="#faq-all"><span>▦</span> Tất cả</a>
+        <a href="#faq-about"><span>🏛</span> Về Tài Chính Quảng Trị</a>
+        <a href="#faq-loan"><span>💼</span> Vay tiêu dùng</a>
+        <a href="#faq-bank"><span>💳</span> Mở thẻ ngân hàng</a>
+        <a href="#faq-security"><span>🛡</span> Bảo mật &amp; an toàn</a>
+      </div>
+    </nav>
+
     <section class="faq-note"><div class="faq-shell"><p>Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính. Chúng tôi không trực tiếp cấp khoản vay, không quyết định phê duyệt hồ sơ và không thu phí tư vấn từ khách hàng.</p></div></section>
 
-    <section class="faq-content">
+    <section class="faq-content" id="faq-all">
       <div class="faq-shell">
-        <div class="faq-group"><h2>Về Tài Chính Quảng Trị</h2><details><summary>Tài Chính Quảng Trị có phải ngân hàng không?</summary><p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không phải ngân hàng và không trực tiếp cung cấp khoản vay hoặc tài khoản ngân hàng.</p></details><details><summary>Tài Chính Quảng Trị có trực tiếp cho vay không?</summary><p>Không. Website không trực tiếp cấp khoản vay, không giải ngân tiền và không quyết định phê duyệt hồ sơ. Kết quả xử lý phụ thuộc vào đơn vị cung cấp sản phẩm.</p></details><details><summary>Tôi có phải trả phí tư vấn không?</summary><p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></details><details><summary>Thông tin trên website có phải tư vấn tài chính chuyên nghiệp không?</summary><p>Không. Nội dung trên website chỉ mang tính tham khảo, giúp người dùng tìm hiểu thông tin ban đầu. Người dùng nên tự cân nhắc và kiểm tra kỹ thông tin trước khi đăng ký sản phẩm.</p></details></div>
+        <div class="faq-group" id="faq-about"><h2>Về Tài Chính Quảng Trị</h2><details><summary>Tài Chính Quảng Trị có phải ngân hàng không?</summary><p>Không. Tài Chính Quảng Trị là kênh tư vấn và kết nối thông tin sản phẩm tài chính, không phải ngân hàng và không trực tiếp cung cấp khoản vay hoặc tài khoản ngân hàng.</p></details><details><summary>Tài Chính Quảng Trị có trực tiếp cho vay không?</summary><p>Không. Website không trực tiếp cấp khoản vay, không giải ngân tiền và không quyết định phê duyệt hồ sơ. Kết quả xử lý phụ thuộc vào đơn vị cung cấp sản phẩm.</p></details><details><summary>Tôi có phải trả phí tư vấn không?</summary><p>Không. Khách hàng không phải trả phí tư vấn khi gửi thông tin qua website.</p></details><details><summary>Thông tin trên website có phải tư vấn tài chính chuyên nghiệp không?</summary><p>Không. Nội dung trên website chỉ mang tính tham khảo, giúp người dùng tìm hiểu thông tin ban đầu. Người dùng nên tự cân nhắc và kiểm tra kỹ thông tin trước khi đăng ký sản phẩm.</p></details></div>
 
-        <div class="faq-group"><h2>Vay tiêu dùng</h2><details><summary>Vay tiêu dùng tại Quảng Trị cần giấy tờ gì?</summary><p>Thông thường khách hàng cần CCCD và thông tin cá nhân cơ bản. Tùy từng sản phẩm, đơn vị cung cấp có thể yêu cầu thêm thông tin thu nhập hoặc giấy tờ liên quan.</p></details><details><summary>Lãi suất vay tiêu dùng là bao nhiêu?</summary><p>Lãi suất có thể thay đổi theo từng sản phẩm, thời điểm và hồ sơ khách hàng. Người dùng nên kiểm tra thông tin cụ thể trước khi đăng ký.</p></details><details><summary>Thời gian xử lý hồ sơ vay bao lâu?</summary><p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p></details><details><summary>Tôi có chắc chắn được duyệt vay không?</summary><p>Không có cam kết chắc chắn. Việc phê duyệt hồ sơ phụ thuộc vào điều kiện, quy định và đánh giá của từng đơn vị cung cấp sản phẩm.</p></details><details><summary>Đang có nợ xấu có vay được không?</summary><p>Khả năng đăng ký phụ thuộc vào chính sách của từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ cụ thể. Người dùng nên trao đổi để được kiểm tra thông tin phù hợp.</p></details><p class="faq-inline-link"><a href="vay-tieu-dung.html">Xem thêm sản phẩm vay tiêu dùng</a></p></div>
+        <div class="faq-group" id="faq-loan"><h2>Vay tiêu dùng</h2><details><summary>Vay tiêu dùng tại Quảng Trị cần giấy tờ gì?</summary><p>Thông thường khách hàng cần CCCD và thông tin cá nhân cơ bản. Tùy từng sản phẩm, đơn vị cung cấp có thể yêu cầu thêm thông tin thu nhập hoặc giấy tờ liên quan.</p></details><details><summary>Lãi suất vay tiêu dùng là bao nhiêu?</summary><p>Lãi suất có thể thay đổi theo từng sản phẩm, thời điểm và hồ sơ khách hàng. Người dùng nên kiểm tra thông tin cụ thể trước khi đăng ký.</p></details><details><summary>Thời gian xử lý hồ sơ vay bao lâu?</summary><p>Thời gian xử lý phụ thuộc vào từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ của khách hàng.</p></details><details><summary>Tôi có chắc chắn được duyệt vay không?</summary><p>Không có cam kết chắc chắn. Việc phê duyệt hồ sơ phụ thuộc vào điều kiện, quy định và đánh giá của từng đơn vị cung cấp sản phẩm.</p></details><details><summary>Đang có nợ xấu có vay được không?</summary><p>Khả năng đăng ký phụ thuộc vào chính sách của từng đơn vị cung cấp sản phẩm và tình trạng hồ sơ cụ thể. Người dùng nên trao đổi để được kiểm tra thông tin phù hợp.</p></details><p class="faq-inline-link"><a href="vay-tieu-dung.html">Xem thêm sản phẩm vay tiêu dùng</a></p></div>
 
-        <div class="faq-group"><h2>Tài khoản ngân hàng / thẻ ngân hàng</h2><details><summary>Mở tài khoản ngân hàng online có mất phí không?</summary><p>Phí mở tài khoản, phí duy trì hoặc các loại phí khác phụ thuộc vào chính sách từng ngân hàng. Người dùng nên kiểm tra thông tin chính thức trước khi đăng ký.</p></details><details><summary>Tôi có thể đăng ký tài khoản ngân hàng qua website này không?</summary><p>Nếu sản phẩm có link đăng ký riêng, bạn có thể bấm để chuyển đến trang đăng ký. Nếu cần hỗ trợ, bạn có thể gửi thông tin để được tư vấn.</p></details><details><summary>Ưu đãi mở tài khoản có luôn được áp dụng không?</summary><p>Không phải mọi ưu đãi đều áp dụng cho tất cả người dùng. Điều kiện nhận ưu đãi phụ thuộc vào chính sách từng ngân hàng và từng thời điểm.</p></details><details><summary>Tôi cần lưu ý gì khi mở tài khoản online?</summary><p>Không chia sẻ OTP, mật khẩu, mã xác thực hoặc thông tin đăng nhập ngân hàng cho bất kỳ ai. Nên đọc kỹ điều khoản trước khi đăng ký.</p></details><p class="faq-inline-link"><a href="the-ngan-hang.html">Xem sản phẩm tài khoản/thẻ ngân hàng</a></p></div>
+        <div class="faq-group" id="faq-bank"><h2>Tài khoản ngân hàng / thẻ ngân hàng</h2><details><summary>Mở tài khoản ngân hàng online có mất phí không?</summary><p>Phí mở tài khoản, phí duy trì hoặc các loại phí khác phụ thuộc vào chính sách từng ngân hàng. Người dùng nên kiểm tra thông tin chính thức trước khi đăng ký.</p></details><details><summary>Tôi có thể đăng ký tài khoản ngân hàng qua website này không?</summary><p>Nếu sản phẩm có link đăng ký riêng, bạn có thể bấm để chuyển đến trang đăng ký. Nếu cần hỗ trợ, bạn có thể gửi thông tin để được tư vấn.</p></details><details><summary>Ưu đãi mở tài khoản có luôn được áp dụng không?</summary><p>Không phải mọi ưu đãi đều áp dụng cho tất cả người dùng. Điều kiện nhận ưu đãi phụ thuộc vào chính sách từng ngân hàng và từng thời điểm.</p></details><details><summary>Tôi cần lưu ý gì khi mở tài khoản online?</summary><p>Không chia sẻ OTP, mật khẩu, mã xác thực hoặc thông tin đăng nhập ngân hàng cho bất kỳ ai. Nên đọc kỹ điều khoản trước khi đăng ký.</p></details><p class="faq-inline-link"><a href="the-ngan-hang.html">Xem sản phẩm tài khoản/thẻ ngân hàng</a></p></div>
 
-        <div class="faq-group"><h2>Bảo mật và an toàn</h2><details><summary>Thông tin của tôi được dùng để làm gì?</summary><p>Thông tin được sử dụng để liên hệ tư vấn theo nhu cầu bạn đã gửi và được xử lý theo Chính sách bảo mật của website.</p></details><details><summary>Website có yêu cầu OTP hoặc mật khẩu không?</summary><p>Không. Tài Chính Quảng Trị không yêu cầu khách hàng cung cấp OTP, mật khẩu, mã xác thực hoặc thông tin đăng nhập ngân hàng.</p></details><details><summary>Tôi có thể yêu cầu xóa thông tin đã gửi không?</summary><p>Có. Bạn có thể liên hệ Hotline hoặc Zalo để yêu cầu chỉnh sửa hoặc xóa thông tin đã gửi.</p></details></div>
+        <div class="faq-group" id="faq-security"><h2>Bảo mật và an toàn</h2><details><summary>Thông tin của tôi được dùng để làm gì?</summary><p>Thông tin được sử dụng để liên hệ tư vấn theo nhu cầu bạn đã gửi và được xử lý theo Chính sách bảo mật của website.</p></details><details><summary>Website có yêu cầu OTP hoặc mật khẩu không?</summary><p>Không. Tài Chính Quảng Trị không yêu cầu khách hàng cung cấp OTP, mật khẩu, mã xác thực hoặc thông tin đăng nhập ngân hàng.</p></details><details><summary>Tôi có thể yêu cầu xóa thông tin đã gửi không?</summary><p>Có. Bạn có thể liên hệ Hotline hoặc Zalo để yêu cầu chỉnh sửa hoặc xóa thông tin đã gửi.</p></details></div>
       </div>
     </section>
 
@@ -100,3 +144,4 @@
 </body>
 
 </html>
+

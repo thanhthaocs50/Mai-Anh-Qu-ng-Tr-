@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 
 <head>
@@ -28,11 +28,29 @@
 <body>
   <header id="topbar">
     <div class="topbar-inner">
-      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ"><span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span></a>
-      <nav class="nav-tabs" id="nav-tabs"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a></nav>
-      <div class="topbar-right"><button class="btn-cta liquid-glass" type="button" onclick="openModal()">Đăng ký tư vấn</button><button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+      <a class="logo" href="index.html" aria-label="Tài Chính Quảng Trị - về trang chủ">
+        <span class="logo-green">Tài Chính</span><span class="logo-orange"> Quảng Trị</span>
+      </a>
+      <nav class="nav-tabs" id="nav-tabs" aria-label="Điều hướng chính">
+        <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+        <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+        <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+        <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      </nav>
+      <div class="topbar-right">
+        <button class="btn-cta liquid-glass" type="button" onclick="handleHeaderCta(event)">Đăng ký ngay</button>
+        <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Mở menu điều hướng" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div class="mobile-menu" id="mobile-menu"><a class="tab-btn" data-page="home" href="index.html">Trang chủ</a><a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a><a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a><a class="tab-btn" href="faq.html">FAQ</a><a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a><button class="btn-cta nav-cta" type="button" onclick="openModal(); closeMobileMenu();">Đăng ký tư vấn</button></div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="tab-btn" data-page="loan" href="vay-tieu-dung.html">Vay tiêu dùng</a>
+      <a class="tab-btn" data-page="bank" href="the-ngan-hang.html">Thẻ ngân hàng</a>
+      <a class="tab-btn" data-page="support" href="faq.html">Hỗ trợ</a>
+      <a class="tab-btn" data-page="contact" href="lien-he.html">Liên hệ</a>
+      <button class="btn-cta nav-cta" type="button" onclick="handleHeaderCta(event); closeMobileMenu();">Đăng ký ngay</button>
+    </div>
   </header>
 
   <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)"><div class="modal-card modal-card-new animate-fade-rise"><button class="modal-close" type="button" onclick="closeModal()" aria-label="Đóng form tư vấn">×</button><div class="form-header-new"><div class="fh-icon-wrapper"><span class="fh-icon">☎</span></div><div class="fh-text"><h3>Đăng ký tư vấn miễn phí</h3><p>Điền thông tin, Tài Chính Quảng Trị sẽ liên hệ hỗ trợ tư vấn trong thời gian phù hợp.</p></div></div><form id="modal-form" class="quick-consult-form"><div class="form-row"><div class="form-group-new"><label for="mf-name">Họ và tên <span class="text-red">*</span></label><div class="input-wrapper"><input type="text" id="mf-name" placeholder="Nhập họ và tên" autocomplete="name" required /></div></div><div class="form-group-new"><label for="mf-phone">Số điện thoại <span class="text-red">*</span></label><div class="input-wrapper"><input type="tel" id="mf-phone" placeholder="Nhập số điện thoại" autocomplete="tel" required pattern="[0-9]{10}" maxlength="10" /></div></div></div><div class="form-group-new mt-3"><label for="mf-product">Nhu cầu tư vấn <span class="text-red">*</span></label><div class="input-wrapper"><select id="mf-product" required><option value="">-- Chọn nhu cầu --</option><option>Vay tiêu dùng</option><option>Mở tài khoản/thẻ ngân hàng</option><option>Cần tư vấn thêm</option></select></div></div><p class="form-privacy-note">Thông tin của bạn chỉ được sử dụng để liên hệ tư vấn và được xử lý theo Chính sách bảo mật.</p>
@@ -66,3 +84,4 @@
 </body>
 
 </html>
+
